@@ -1,0 +1,14 @@
+******************
+	problem1
+******************
+Write an Efficient Function to Convert a Binary Tree into its Mirror Tree
+Mirror of a Tree: Mirror of a Binary Tree T is another Binary Tree M(T) with left and right children of all non-leaf nodes interchanged.
+
+Algorithm - Mirror(tree):
+
+(1)  Call Mirror for left-subtree    i.e., Mirror(left-subtree)
+(2)  Call Mirror for right-subtree  i.e., Mirror(left-subtree)
+(3)  Swap left and right subtrees.
+          temp = left-subtree
+          left-subtree = right-subtree
+          right-subtree = temp	
