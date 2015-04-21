@@ -1,6 +1,6 @@
 /**
  * 28-Mar-2015 2:56:44 pm
- * GeeksForGeeks/tests.stacks/StackTest.java
+ * GeekyAlgoJava/tests.stacks/StackTest.java
  * ketandikshit
  * StackTest
  * 2015
@@ -16,7 +16,7 @@ import org.junit.Test;
 /**
  * @author ketandikshit
  *         28-Mar-2015 2:56:44 pm
- *         GeeksForGeeks/tests.stacks/StackTest.java
+ *         GeekyAlgoJava/tests.stacks/StackTest.java
  *         2015
  */
 public class StackTest {

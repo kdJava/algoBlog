@@ -1,6 +1,6 @@
 /**
  * 30-Mar-2015 11:47:07 pm
- * GeeksForGeeks/linkedlists.algorithms/Problem2.java
+ * GeekyAlgoJava/linkedlists.algorithms/Problem2.java
  * ketandikshit
  * Problem2
  * 2015
@@ -12,7 +12,7 @@ import java.util.Random;
 /**
  * @author ketandikshit
  *         30-Mar-2015 11:47:07 pm
- *         GeeksForGeeks/linkedlists.algorithms/Problem2.java
+ *         GeekyAlgoJava/linkedlists.algorithms/Problem2.java
  *         2015
  */
 public class LinkedList<Item> {

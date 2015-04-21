@@ -1,6 +1,6 @@
 /**
  * 03-Apr-2015 12:40:31 pm
- * GeeksForGeeks/linkedlists.algorithms.problem4/LinkedList.java
+ * GeekyAlgoJava/linkedlists.algorithms.problem4/LinkedList.java
  * ketandikshit
  * LinkedList
  * 2015
@@ -12,7 +12,7 @@ import org.junit.Assert;
 /**
  * @author ketandikshit
  *         03-Apr-2015 12:40:31 pm
- *         GeeksForGeeks/linkedlists.algorithms.problem4/LinkedList.java
+ *         GeekyAlgoJava/linkedlists.algorithms.problem4/LinkedList.java
  *         2015
  */
 public class LinkedList<Item> {

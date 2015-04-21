@@ -1,6 +1,6 @@
 /**
  * @createdOn 17-Apr-2015 11:52:56 pm
- * @qualifiedName GeeksForGeeks/linkedlists.algorithms.problem8/LinkedList.java
+ * @qualifiedName GeekyAlgoJava/linkedlists.algorithms.problem8/LinkedList.java
  * @author ketandikshit
  * @typeName LinkedList
  * @year 2015
@@ -10,7 +10,7 @@ package linkedlists.algorithms.problem8;
 /**
  * @author ketandikshit
  * @createdOn 17-Apr-2015 11:52:56 pm
- * @qualifiedName GeeksForGeeks/linkedlists.algorithms.problem8/LinkedList.java
+ * @qualifiedName GeekyAlgoJava/linkedlists.algorithms.problem8/LinkedList.java
  * @year 2015
  */
 public class LinkedList<Item> {
@@ -18,11 +18,34 @@ public class LinkedList<Item> {
 	private Node first;
 	private int size;
 
+	/**
+	 * Internal data structure representing the node in linked-list
+	 * 
+	 * @author ketandikshit
+	 * @createdOn 20-Apr-2015 10:28:44 pm
+	 * @qualifiedName
+	 *                GeekyAlgoJava/linkedlists.algorithms.problem8/LinkedList.
+	 *                java
+	 * @year 2015
+	 */
 	private class Node {
 		private Item item;
 		private Node next;
+
+		@Override
+		public String toString() {
+			return ("NODE[DATA:" + item + "]" + "-->" + next);
+		}
 	}
 
+	/**
+	 * Overriding the {@linkplain Object#toString()} to denote the linked-lists
+	 * in simple format
+	 * 
+	 * @createdOn 20-Apr-2015 10:29:11 pm
+	 * @author ketandikshit
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString() {
 		String result = "LinkedList--> [";
@@ -133,7 +156,7 @@ public class LinkedList<Item> {
 
 	/**
 	 * problem8
-	 * Function to check if a singly linked list is palindrome
+	 * Function to check if a singly linked list is pallindrome
 	 * 1) Get the middle of the linked list.
 	 * 2) Reverse the second half of the linked list.
 	 * 3) Check if the first half and second half are identical.
@@ -215,6 +238,9 @@ public class LinkedList<Item> {
 			}
 		}
 
+		if (isPallindrome)
+			System.out.println("************ IS PALLINDROME ***********");
+
 		return isPallindrome;
 
 	}
@@ -242,6 +268,17 @@ public class LinkedList<Item> {
 		return head;
 	}
 
+	/**
+	 * Compares 2 linkedlists Node by Node
+	 * 
+	 * @createdOn 20-Apr-2015 10:31:15 pm
+	 * @author ketandikshit
+	 * @param head1
+	 *            first linkedlist
+	 * @param head2
+	 *            second linkedlist
+	 * @return true if 2 given linkedlists are identical, false otherwise
+	 */
 	private boolean compareLists(Node head1, Node head2) {
 		Node temp1 = head1;
 		Node temp2 = head2;
@@ -266,6 +303,102 @@ public class LinkedList<Item> {
 	}
 
 	/**
+	 * problem8
+	 * Function to check if a singly linked list is pallindrome
+	 * Use two pointers left and right. Move right and left using recursion and
+	 * check for following in each recursive call.
+	 * 1) Sub-list is palindrome.
+	 * 2) Value at current left and right are matching.
+	 * 
+	 * If both above conditions are true then return true.
+	 * The idea is to use function call stack as container.
+	 * Recursively traverse till the end of list. When we return from last NULL,
+	 * we will be at last node.
+	 * The last node to be compared with first node of list.
+	 * In order to access first node of list, we need list head to be available
+	 * in the last call of recursion.
+	 * Hence we pass head also to the recursive function. If they both match we
+	 * need to compare (2, n-2) nodes.
+	 * Again when recursion falls back to (n-2)nd node, we need reference to 2nd
+	 * node from head.
+	 * We advance the head pointer in previous call, to refer to next node in
+	 * the list.
+	 * However, the trick in identifying double pointer.
+	 * Passing single pointer is as good as pass-by-value, and we will pass the
+	 * same pointer again and again.
+	 * We need to pass the address of head pointer for reflecting the changes in
+	 * parent recursive calls.
+	 * In JAVA, till date it is not possible to pass-by-reference, ( ie; double
+	 * pointer mechanism in C eg: **node or &node ), so we need to keep the
+	 * leftNode {@linkplain LinkedList#leftNode} out of the calling stack scope,
+	 * so that we can change it in each of the recursion-unwinding steps, to
+	 * move it forward on at a time; (Please understand this clearly, would help
+	 * you to crack many recursive limitations in Java where you might feel the
+	 * need of changing the recursive-call-stack variables in each of the
+	 * stack-unwinding steps)
+	 * 
+	 * @createdOn 20-Apr-2015 10:40:06 pm
+	 * @author ketandikshit
+	 * @param linkedList
+	 * @return true if the given linkedlist's values represent a pallindrome ,
+	 *         false otherwise
+	 */
+	public boolean checkPalindromeUsingRecursion(LinkedList<Item> linkedList) {
+		linkedList.leftNode = linkedList.first;
+		boolean isReallyPallindrome = false;
+		if (isReallyPallindrome = isPallindrome(linkedList.first))
+			System.out.println("************ IS PALLINDROME ***********");
+
+		return isReallyPallindrome;
+	}
+	/**
+	 * This node is specifically used by the
+	 * {@link LinkedList#checkPalindromeUsingRecursion(LinkedList)} method to
+	 * keep the left-node pointer out of the recursive call stack scope
+	 */
+	private Node leftNode;
+
+	/**
+	 * Recursive call method to check the pallindrome
+	 * 
+	 * @see {@linkplain LinkedList#checkPalindromeUsingRecursion(LinkedList)}
+	 *      for triggering
+	 *      this off ;)
+	 * @createdOn 21-Apr-2015 9:58:31 pm
+	 * @author ketandikshit
+	 * @param rightNode
+	 *            the current right-node pointer
+	 * @return true if the rightNode pointer reaches the end of the list, false
+	 *         otherwise
+	 */
+	private boolean isPallindrome(Node rightNode) {
+
+		/*
+		 * Recursion Terminating condition(base condition);
+		 * Recursion Stops when we reach the end of the linkedlist
+		 */
+		if (rightNode == null)
+			return true;
+
+		/*
+		 * Recursive calls ,
+		 * helps us to traverse to end of the linked list , one step at a time;
+		 */
+		if (!isPallindrome(rightNode.next))
+			return false;
+
+		/*
+		 * Pallindrome INVARIANT: Always the 'i'th element should be equal to
+		 * 'N-i'th element
+		 * Check if the current-leftNode is equal to the current-rightNode
+		 */
+		boolean isPal = (leftNode.item == rightNode.item);
+		// Set the current-leftNode to next Node in the list
+		leftNode = leftNode.next;
+		return isPal;
+	}
+
+	/**
 	 * @createdOn 17-Apr-2015 11:52:58 pm
 	 * @author ketandikshit
 	 * @param args
@@ -283,10 +416,18 @@ public class LinkedList<Item> {
 			count++;
 		}
 		System.out.println(linkedList);
-		System.out.println(linkedList.checkPalindromeUsingStack(linkedList));
+		System.out.println("Using Stack-->"
+				+ linkedList.checkPalindromeUsingStack(linkedList));
 		System.out.println("\n");
-		System.out.println(linkedList
-				.checkPalindromeByReversingSecondHalf(linkedList));
+
+		System.out.println(linkedList);
+		System.out.println("Using Recusrion-->"
+				+ linkedList.checkPalindromeUsingRecursion(linkedList));
+		System.out.println("\n");
+
+		System.out.println(linkedList);
+		System.out.println("Reversing the SecondHalf of LL-->"
+				+ linkedList.checkPalindromeByReversingSecondHalf(linkedList));
 
 	}
 }

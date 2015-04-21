@@ -1,6 +1,6 @@
 /**
  * 02-Apr-2015 12:47:17 pm
- * GeeksForGeeks/binary_search_tree.alogorithms/Problem1.java
+ * GeekyAlgoJava/binary_search_tree.alogorithms/Problem1.java
  * ketandikshit
  * Problem1
  * 2015
@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * @author ketandikshit
  *         02-Apr-2015 12:47:17 pm
- *         GeeksForGeeks/binary_search_tree.alogorithms/Problem1.java
+ *         GeekyAlgoJava/binary_search_tree.alogorithms/Problem1.java
  *         2015
  */
 public class Problem1<Item> {

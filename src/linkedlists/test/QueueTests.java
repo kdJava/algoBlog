@@ -1,6 +1,6 @@
 /**
  * 28-Mar-2015 3:36:32 pm
- * GeeksForGeeks/tests.queues/QueueTests.java
+ * GeekyAlgoJava/tests.queues/QueueTests.java
  * ketandikshit
  * QueueTests
  * 2015
@@ -17,7 +17,7 @@ import org.junit.Test;
 /**
  * @author ketandikshit
  *         28-Mar-2015 3:36:32 pm
- *         GeeksForGeeks/tests.queues/QueueTests.java
+ *         GeekyAlgoJava/tests.queues/QueueTests.java
  *         2015
  */
 public class QueueTests {

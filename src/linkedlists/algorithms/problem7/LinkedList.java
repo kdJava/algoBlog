@@ -1,6 +1,6 @@
 /**
  * 06-Apr-2015 10:35:05 pm
- * GeeksForGeeks/linkedlists.algorithms.problem7/LinkedList.java
+ * GeekyAlgoJava/linkedlists.algorithms.problem7/LinkedList.java
  * ketandikshit
  * LinkedList
  * 2015
@@ -14,7 +14,7 @@ import java.util.Set;
  * 
  * @author ketandikshit
  * @createdOn 09-Apr-2015 5:28:29 pm
- * @qualifiedName GeeksForGeeks/linkedlists.algorithms.problem7/LinkedList.java
+ * @qualifiedName GeekyAlgoJava/linkedlists.algorithms.problem7/LinkedList.java
  * @year 2015
  */
 public class LinkedList<Item> {

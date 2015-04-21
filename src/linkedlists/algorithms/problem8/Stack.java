@@ -1,6 +1,6 @@
 /**
  * @createdOn 17-Apr-2015 11:58:25 pm
- * @qualifiedName GeeksForGeeks/linkedlists.algorithms.problem8/Stack.java
+ * @qualifiedName GeekyAlgoJava/linkedlists.algorithms.problem8/Stack.java
  * @author ketandikshit
  * @typeName Stack
  * @year 2015
@@ -13,7 +13,7 @@ import java.util.Iterator;
 /**
  * @author ketandikshit
  * @createdOn 17-Apr-2015 11:58:25 pm
- * @qualifiedName GeeksForGeeks/linkedlists.algorithms.problem8/Stack.java
+ * @qualifiedName GeekyAlgoJava/linkedlists.algorithms.problem8/Stack.java
  * @year 2015
  */
 public class Stack<Item> implements Iterable<Item> {
@@ -26,7 +26,7 @@ public class Stack<Item> implements Iterable<Item> {
 	 * 
 	 * @author ketandikshit
 	 * @createdOn 18-Apr-2015 12:04:00 am
-	 * @qualifiedName GeeksForGeeks/linkedlists.algorithms.problem8/Stack.java
+	 * @qualifiedName GeekyAlgoJava/linkedlists.algorithms.problem8/Stack.java
 	 * @year 2015
 	 */
 	private class Node {
@@ -137,7 +137,7 @@ public class Stack<Item> implements Iterable<Item> {
 	 * 
 	 * @author ketandikshit
 	 * @createdOn 18-Apr-2015 12:03:17 am
-	 * @qualifiedName GeeksForGeeks/linkedlists.algorithms.problem8/Stack.java
+	 * @qualifiedName GeekyAlgoJava/linkedlists.algorithms.problem8/Stack.java
 	 * @year 2015
 	 */
 	private class ListIterator implements Iterator<Item> {

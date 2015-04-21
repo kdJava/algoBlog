@@ -1,6 +1,6 @@
 /**
  * 27-Mar-2015 10:27:08 am
- * GeeksForGeeks/linkedlists.datastructure/Queue.java
+ * GeekyAlgoJava/linkedlists.datastructure/Queue.java
  * ketandikshit
  * Queue
  * 2015
@@ -13,7 +13,7 @@ import java.util.Iterator;
 /**
  * @author ketandikshit
  *         27-Mar-2015 10:27:08 am
- *         GeeksForGeeks/linkedlists.datastructure/Queue.java
+ *         GeekyAlgoJava/linkedlists.datastructure/Queue.java
  *         2015
  */
 public class Queue<Item> implements Iterable<Item> {

@@ -1,6 +1,6 @@
 /**
  * 27-Mar-2015 10:35:14 am
- * GeeksForGeeks/tests.linkedlists/LinkedListTests.java
+ * GeekyAlgoJava/tests.linkedlists/LinkedListTests.java
  * ketandikshit
  * LinkedListTests
  * 2015
@@ -16,7 +16,7 @@ import org.junit.Test;
 /**
  * @author ketandikshit
  *         27-Mar-2015 10:35:14 am
- *         GeeksForGeeks/tests.linkedlists/LinkedListTests.java
+ *         GeekyAlgoJava/tests.linkedlists/LinkedListTests.java
  *         2015
  */
 public class LinkedListTests {

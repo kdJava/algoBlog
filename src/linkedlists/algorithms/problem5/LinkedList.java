@@ -1,6 +1,6 @@
 /**
  * 03-Apr-2015 12:57:31 pm
- * GeeksForGeeks/linkedlists.algorithms.problem5/LinkedList.java
+ * GeekyAlgoJava/linkedlists.algorithms.problem5/LinkedList.java
  * ketandikshit
  * LinkedList
  * 2015
@@ -10,7 +10,7 @@ package linkedlists.algorithms.problem5;
 /**
  * @author ketandikshit
  *         03-Apr-2015 12:57:31 pm
- *         GeeksForGeeks/linkedlists.algorithms.problem5/LinkedList.java
+ *         GeekyAlgoJava/linkedlists.algorithms.problem5/LinkedList.java
  *         2015
  */
 public class LinkedList<Item> {
