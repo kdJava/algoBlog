@@ -23,13 +23,10 @@ To make this solution work we can mark the end node as a dummy node.(No other op
 *******************
 	problem-3
 *******************
-Write a function to print the middle of a given linked list
-Method 1:
-Traverse the whole linked list and count the no. of nodes. 
-Now traverse the list again till count/2 and return the node at count/2.
-Method 2:
-Traverse linked list using two pointers. Move one pointer by one and other pointer by two. 
-When the fast pointer reaches end slow pointer will reach middle of the linked list.
+Write a function to print the middle of a given linked list  
+Method 1: Traverse the whole linked list and count the no. of nodes. Now traverse the list again till count/2 and return the node at count/2.  
+Method 2:Traverse linked list using two pointers. Move one pointer by one and other pointer by two. 
+When the fast pointer reaches end slow pointer will reach middle of the linked list.  
 
 
 
@@ -40,7 +37,7 @@ Write a function that counts the number of times a given item occurs in a Linked
 Here is a solution.
 
 Algorithm:
-1. Initialize count as zero.
+1. Initialize count as zero.  
 2. Loop through each element of linked list:
      a) If element data is equal to the key item then
         increment the count.
@@ -79,21 +76,24 @@ Traverse the list one by one and keep putting the node addresses in a Hash Table
 At any point, if NULL is reached then return false and if next of current node points 
 to any of the previously stored nodes in Hash then return true.
 
+
 2) Mark Visited Nodes:(Data Structure needs to be changed)
 This solution requires modifications to basic linked list data structure.  Have a visited flag with each node.  Traverse the linked list and keep marking visited nodes.  If you see a visited node again then there is a loop. This solution works in O(n) but requires additional information with each node.
 A variation of this solution that doesn’t require modification to basic data structure can be implemented using hash.  Just store the addresses of visited nodes in a hash and if you see an address that already exists in hash then there is a loop.
+
 
 3) Floyd’s cycle detection algorithm
 The Tortoise (Slow ptr) and the Hare (fast ptr) start at the beginning of linked list.
 For each iteration, slow ptr moves one step and the fast ptr moves two steps.
 If there is a loop, fast ptr will go around the loop and meet with slow ptr.
-If there is no loop, the fast prt will get to the end of the list without meeting up with the slow ptr.
+If there is no loop, the fast prt will get to the end of the list without meeting up with the slow ptr.  
 
-Size-of-loop: start the slow ptr again from the current position(one step at a time) until it reaches the current position gain after completing the loop;
-While moving kepp the counter for counting the number of loops encountered, this counter will give the size of loop;
 
-Starting point of loop: Set the slow ptr from start and fast ptr from its current position , move them both one step at a time now, until they
-meet at a position, this meeting point will give you the start of the loop;
+Size-of-loop: start the slow ptr again from the current position(one step at a time) until it reaches the current position gain after completing the loop; While moving kepp the counter for counting the number of loops encountered, this counter will give the size of loop;  
+
+
+Starting point of loop: Set the slow ptr from start and fast ptr from its current position , move them both one step at a time now, until they meet at a position, this meeting point will give you the start of the loop;  
+
 Correctness of algorithm for finding start node of loop:
 Lets assume that linked list has a “non-looped” part of size k. 
 When we apply Floyd’s cycle detection algorithm, we know that after k steps,
@@ -101,16 +101,23 @@ When we apply Floyd’s cycle detection algorithm, we know that after k steps,
 --fastPtr is k steps into the loop. since k might be much larger than loop_size,it is actually k%loop_size. Let’s say it as p. So fastPtr is p steps into the loop.
 --slowPtr is p steps behind fastPtr.
 --fastPtr is loop_size – p steps behind slowPtr.
---fastPtr catches up to slowPtr at a rate of one step per unit of time.
-From above points, after loop_size – p steps, fastPtr and slowPtr meet each other, which means they will be p steps before start of the loop.
-Since p = k%loop_size ( k = p+M*loop_size), it is correct to say that, fastPtr, slowPtr are k steps from start node of the loop.
-If we reinitialise slowPtr to head node and start moving both pointers one node at a time. they both meet at start node of the loop.
+--fastPtr catches up to slowPtr at a rate of one step per unit of time.  
+
+From above points, after loop_size – p steps, fastPtr and slowPtr meet each other, which means they will be p steps before start of the loop.  
+
+Since p = k%loop_size ( k = p+M*loop_size), it is correct to say that, fastPtr, slowPtr are k steps from start node of the loop.  
+
+If we reinitialise slowPtr to head node and start moving both pointers one node at a time. they both meet at start node of the loop.  
+
+
 
 Printing the loop(trivial): starting from the starting point of the loop , move one step at a time equal to size-of-loop; While moving 
-keep on printing the the nodes, this will give you all the  nodes in cycle;
+keep on printing the the nodes, this will give you all the  nodes in cycle;  
+
+
 
 4)Brent’s Cycle detection Algorithm
-This algorithm is based on Floyd‘s algorithm. It is more efficient (24-36% faster on average) than Floyd‘s but little complicated.
+This algorithm is based on Floyd‘s algorithm. It is more efficient (24-36% faster on average) than Floyd‘s but little complicated.  
 
 Start ptr1 (Moving ptr), ptr2 (Stationary pointer) from beginning of the list
 ptr1 takes one step per iteration, If it is then at the same position as the ptr2, there is obviously a loop. If it reaches the end of the list, there is no loop.
@@ -125,6 +132,7 @@ Write a function to get the intersection point of two Linked Lists.
 There are two singly linked lists in a system. By some programming error the end node of one of the linked list got linked into the second list, forming a inverted Y shaped list. Write a program to get the point where two linked list merge.
 
 
+
 Method 1(Simply use two loops)
 Use 2 nested for loops. 
 Outer loop will be for each node of the 1st list and inner loop will be for 2nd list. 
@@ -132,6 +140,7 @@ In the inner loop, check if any of nodes of 2nd list is same as the current node
 Time complexity of this method will be O(m*n) where m and n are the number of nodes in two lists.
 
 
+ 
 Method 2 (Mark Visited Nodes)
 This solution requires modifications to basic linked list data structure. 
 Have a visited flag with each node. 
@@ -214,6 +223,7 @@ Function to check if a singly linked list is palindrome
 Given a singly linked list of characters, write a function that returns true if the given list is palindrome, else false.
 
 
+
 METHOD 1: Use a Stack
 A simple solution is to use a stack of list nodes. This mainly involves three steps.
 1) Traverse the given list from head to tail and push every visited node to stack.
@@ -222,14 +232,17 @@ A simple solution is to use a stack of list nodes. This mainly involves three st
 Time complexity of above method is O(n), but it requires O(n) extra space. Following methods solve this with constant extra space.
 
 
+
 METHOD 2: By reversing the list
 This method takes O(n) time and O(1) extra space.
 1) Get the middle of the linked list.
 2) Reverse the second half of the linked list.
 3) Check if the first half and second half are identical.
-4) Construct the original linked list by reversing the second half again and attaching it back to the first half
+4) Construct the original linked list by reversing the second half again and attaching it back to the first half.  
 
-To divide the list in two halves.
+
+To divide the list in two halves  
+
 When number of nodes are even, the first and second half contain exactly half nodes. 
 The challenging thing in this method is to handle the case when number of nodes are odd. 
 We don’t want the middle node as part of any of the lists as we are going to compare them for equality. 
@@ -242,14 +255,8 @@ Use two pointers left and right. Move right and left using recursion and check f
 1) Sub-list is palindrome.
 2) Value at current left and right are matching.
 
-If both above conditions are true then return true.
-The idea is to use function call stack as container. 
-Recursively traverse till the end of list. When we return from last NULL, we will be at last node. 
-The last node to be compared with first node of list.
-In order to access first node of list, we need list head to be available in the last call of recursion. 
+If both above conditions are true then return true.The idea is to use function call stack as container.Recursively traverse till the end of list. When we return from last NULL, we will be at last node. The last node to be compared with first node of list.In order to access first node of list, we need list head to be available in the last call of recursion. 
 Hence we pass head also to the recursive function. If they both match we need to compare (2, n-2) nodes. 
 Again when recursion falls back to (n-2)nd node, we need reference to 2nd node from head. 
 We advance the head pointer in previous call, to refer to next node in the list.
-However, the trick in identifying double pointer. 
-Passing single pointer is as good as pass-by-value, and we will pass the same pointer again and again. 
-We need to pass the address of head pointer for reflecting the changes in parent recursive calls.
+However, the trick in identifying double pointer. Passing single pointer is as good as pass-by-value, and we will pass the same pointer again and again. We need to pass the address of head pointer for reflecting the changes in parent recursive calls.
