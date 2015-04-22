@@ -7,6 +7,7 @@
  */
 package linkedlists.algorithms.problem1;
 
+
 /**
  * @author ketandikshit
  *         30-Mar-2015 11:17:08 am
@@ -26,6 +27,10 @@ public class LinkedList<Item> {
 	@Override
 	public String toString() {
 		String result = "LinkedList--> [";
+		if (size == 0) {
+			result += "NULL]";
+			return result;
+		}
 		int counter = 0;
 		for (Node i = first; i != null; i = i.next) {
 			if (counter == (size - 1))
