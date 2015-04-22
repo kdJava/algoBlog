@@ -267,3 +267,20 @@ Let input linked list is sorted in increasing order.
     greater than the input node. The node just before GN is the appropriate
     node (7).
 4. Insert the node (9) after the appropriate node (7) found in step 3.  
+
+
+*******************
+	problem-10: Remove duplicates from a sorted linked list.
+*******************
+Write a removeDuplicates() function which takes a list sorted linked list and deletes any duplicate nodes from the list.  
+The list should only be traversed once.  
+
+For example if the linked list is 11->11->11->21->43->43->60 ,  
+then removeDuplicates() should convert the list to 11->21->43->60.  
+  
+
+	Algorithm:
+1. Traverse the list from the head (or start) node. 
+2. While traversing, Compare each node with its next node. 
+3. If data of next node is same as current node then delete the next node. 
+4. Before we delete a node, we need to store next pointer of the node
