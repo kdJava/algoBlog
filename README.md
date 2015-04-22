@@ -171,7 +171,7 @@ Method 4(Using difference of node counts)
 
 Method 5(Make circle in first list)
 	1. Traverse the first linked list(count the elements) and make a circular linked list. 
-	(Remember last node so that we can break the circle later on).
+	   (Remember last node so that we can break the circle later on).
 	2. Now view the problem as find the loop in the second linked list. So the problem is solved.
 	3. Since we already know the length of the loop(size of first linked list) we can traverse those many number of nodes in second list, and then start another pointer from the beginning of second list. we have to traverse until they are equal, and that is the required intersection point.
 	4. remove the circle from the linked list.
