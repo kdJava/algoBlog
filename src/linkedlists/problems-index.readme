@@ -12,7 +12,7 @@ A simple solution is to traverse the linked list until you find the node you wan
 But this solution requires pointer to the head node which contradicts the problem statement.
 
 Fast solution is to copy the data from the next node to the node to be deleted and delete the next node;
-Caution: This solution doesnít work if the node to be deleted is the last node of the list. 
+Caution: This solution doesn‚Äôt work if the node to be deleted is the last node of the list. 
 To make this solution work we can mark the end node as a dummy node.(No other option known till I code this)
 
 *******************
@@ -52,11 +52,11 @@ Recursive Method:
  
 https://www.youtube.com/watch?v=KYH83T4q6Vs
 The cool thing about recursion in this problem is that it essentially allows us to iterate through 
-the linked list backwards ñ even though this is impossible in a singly linked list just by using the pointers 
+the linked list backwards ‚Äì even though this is impossible in a singly linked list just by using the pointers 
 (of course this would certainly be possible in a doubly linked list). 
 The reason we can do this in recursion is because of the fact that the stack frames for each function call 
-are saved until we get to the very end of the list, and then it is as if we are ëunwindingí the stack frames one by one going 
-backwards in the linked list ñ where each stack frame essentially represents a node in the linked list. 
+are saved until we get to the very end of the list, and then it is as if we are ‚Äòunwinding‚Äô the stack frames one by one going 
+backwards in the linked list ‚Äì where each stack frame essentially represents a node in the linked list. 
 Make sure you understand this point, because it is important and really helps in your 
 understanding of how to use recursion to solve problems.
 
@@ -74,9 +74,9 @@ to any of the previously stored nodes in Hash then return true.
 
 2) Mark Visited Nodes:(Data Structure needs to be changed)
 This solution requires modifications to basic linked list data structure.  Have a visited flag with each node.  Traverse the linked list and keep marking visited nodes.  If you see a visited node again then there is a loop. This solution works in O(n) but requires additional information with each node.
-A variation of this solution that doesnít require modification to basic data structure can be implemented using hash.  Just store the addresses of visited nodes in a hash and if you see an address that already exists in hash then there is a loop.
+A variation of this solution that doesn‚Äôt require modification to basic data structure can be implemented using hash.  Just store the addresses of visited nodes in a hash and if you see an address that already exists in hash then there is a loop.
 
-3) Floydís cycle detection algorithm
+3) Floyd‚Äôs cycle detection algorithm
 The Tortoise (Slow ptr) and the Hare (fast ptr) start at the beginning of linked list.
 For each iteration, slow ptr moves one step and the fast ptr moves two steps.
 If there is a loop, fast ptr will go around the loop and meet with slow ptr.
@@ -90,16 +90,16 @@ While moving kepp the counter for counting the number of loops encountered, this
 Starting point of loop: Set the slow ptr from start and fast ptr from its current position , move them both one step at a time now, until they
 meet at a position, this meeting point will give you the start of the loop;
 Correctness of algorithm for finding start node of loop:
-Lets assume that linked list has a ìnon-loopedî part of size k. 
-When we apply Floydís cycle detection algorithm, we know that after k steps,
+Lets assume that linked list has a ‚Äúnon-looped‚Äù part of size k. 
+When we apply Floyd‚Äôs cycle detection algorithm, we know that after k steps,
 
 --slowPtr will be at start of loop, and is 0 steps into the loop.
 --fastPtr is k steps into the loop. since k might be much larger than loop_size, 
-it is actually k%loop_size. Letís say it as p. So fastPtr is p steps into the loop.
+it is actually k%loop_size. Let‚Äôs say it as p. So fastPtr is p steps into the loop.
 --slowPtr is p steps behind fastPtr.
---fastPtr is loop_size ñ p steps behind slowPtr.
+--fastPtr is loop_size ‚Äì p steps behind slowPtr.
 --fastPtr catches up to slowPtr at a rate of one step per unit of time.
-From above points, after loop_size ñ p steps, fastPtr and slowPtr meet each other, which means they will be p steps before start of the loop.
+From above points, after loop_size ‚Äì p steps, fastPtr and slowPtr meet each other, which means they will be p steps before start of the loop.
 Since p = k%loop_size ( k = p+M*loop_size), it is correct to say that, fastPtr, slowPtr are k steps from start node of the loop.
 If we reinitialise slowPtr to head node and start moving both pointers one node at a time. they both meet at start node of the loop.
 
@@ -107,8 +107,8 @@ If we reinitialise slowPtr to head node and start moving both pointers one node 
 Printing the loop(trivial): starting from the starting point of the loop , move one step at a time equal to size-of-loop; While moving 
 keep on printing the the nodes, this will give you all the  nodes in cycle;
 
-4)Brentís Cycle detection Algorithm
-This algorithm is based on Floydës algorithm. It is more efficient (24-36% faster on average) than Floydës but little complicated.
+4)Brent‚Äôs Cycle detection Algorithm
+This algorithm is based on Floyd‚Äòs algorithm. It is more efficient (24-36% faster on average) than Floyd‚Äòs but little complicated.
 
 Start ptr1 (Moving ptr), ptr2 (Stationary pointer) from beginning of the list
 ptr1 takes one step per iteration, If it is then at the same position as the ptr2, there is obviously a loop. If it reaches the end of the list, there is no loop.
@@ -137,7 +137,7 @@ If you see a visited node again then there is an intersection point, return the 
 This solution works in O(m+n) but requires additional information with each node. 
 --------------------------------
 Method 3( Hash based data structure)
-A variation of the above solution that doesnít require modification to basic data structure can be implemented using hash. 
+A variation of the above solution that doesn‚Äôt require modification to basic data structure can be implemented using hash. 
 Traverse the first linked list and store the addresses of visited nodes in a hash. 
 Now traverse the second linked list and if you see an address that already exists in hash then return the intersecting node.
 Time complexity is O(m+n) but requires additional space equal O(N) or O(M)
@@ -145,7 +145,7 @@ Time complexity is O(m+n) but requires additional space equal O(N) or O(M)
 Method 4(Using difference of node counts)
 	1) Get count of the nodes in first list, let count be c1.
 	2) Get count of the nodes in second list, let count be c2.
-	3) Get the difference of counts d = abs(c1 ñ c2)
+	3) Get the difference of counts d = abs(c1 ‚Äì c2)
 	4) Now traverse the bigger list from the first node till d nodes so that from here onwards both the lists have equal no of nodes.
 	5) Then we can traverse both the lists in parallel till we come across a common node. 
 	(Note that getting a common node is done by comparing the address of the nodes)
@@ -173,9 +173,9 @@ Method 6 (Reverse the first list and make equations)
      Now we have
         X + Y = C3
      We have 3 linear equations. By solving them, we get
-       X = (C1 + C3 ñ C2)/2;
-       Y = (C2 + C3 ñ C1)/2;
-       Z = (C1 + C2 ñ C3)/2;
+       X = (C1 + C3 ‚Äì C2)/2;
+       Y = (C2 + C3 ‚Äì C1)/2;
+       Z = (C1 + C2 ‚Äì C3)/2;
       WE GOT THE INTERSECTION POINT.
 4)  Reverse first linked list.
 Advantage: No Comparison of pointers.
@@ -218,8 +218,8 @@ This method takes O(n) time and O(1) extra space.
 To divide the list in two halves.
 When number of nodes are even, the first and second half contain exactly half nodes. 
 The challenging thing in this method is to handle the case when number of nodes are odd. 
-We donít want the middle node as part of any of the lists as we are going to compare them for equality. 
-For odd case, we use a separate variable ëmidnodeí.
+We don‚Äôt want the middle node as part of any of the lists as we are going to compare them for equality. 
+For odd case, we use a separate variable ‚Äòmidnode‚Äô.
 	
 
 METHOD 3: Using Recursion
@@ -238,3 +238,20 @@ We advance the head pointer in previous call, to refer to next node in the list.
 However, the trick in identifying double pointer. 
 Passing single pointer is as good as pass-by-value, and we will pass the same pointer again and again. 
 We need to pass the address of head pointer for reflecting the changes in parent recursive calls.
+
+*******************
+	problem-8: Given a linked list which is sorted, how will you insert in sorted way;
+*******************
+Algorithm:  
+Let input linked list is sorted in increasing order.  
+
+1. If Linked list is empty then make the node as head and return it.
+2. If value of the node to be inserted is smaller than value of head node, 
+    then insert the node at start and make it head.
+3. In a loop, find the appropriate node after which the input node (let 9) is
+    to be inserted. To find the appropriate node start from head, keep moving 
+    until you reach a node GN (10 in the below diagram) who's value is 
+    greater than the input node. The node just before GN is the appropriate
+    node (7).
+4. Insert the node (9) after the appropriate node (7) found in step 3.  
+
