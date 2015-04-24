@@ -116,6 +116,15 @@ public class LinkedList<Item> {
 		size++; // increment the size
 	}
 
+	/**
+	 * problem13
+	 * moves the last node of the linked list to the head
+	 * 
+	 * @createdOn 24-Apr-2015 1:39:13 pm
+	 * @author ketandikshit
+	 * @param linkedlist
+	 *            linked list to operate upon
+	 */
 	public void moveLastToFirst(LinkedList<Item> linkedlist) {
 		Node secondLastNode = null;
 		Node lastNode = linkedlist.first;
