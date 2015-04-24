@@ -147,8 +147,16 @@ public class LinkedList<Item extends Comparable<Item>> {
 		}
 	}
 
+	/**
+	 * Merge sort for linke list
+	 * 
+	 * @createdOn 24-Apr-2015 10:55:55 am
+	 * @author ketandikshit
+	 * @param head
+	 *            takes the head of the linked list
+	 * @return the head of the sorted linked list after doing merge sort
+	 */
 	private Node mergeSortList(Node head) {
-
 		if (head == null || head.next == null)
 			return head;
 		Node left = head;
@@ -162,6 +170,20 @@ public class LinkedList<Item extends Comparable<Item>> {
 		return merge(mergeSortList(left), mergeSortList(right));
 	}
 
+	/**
+	 * Internal helper code of merge-sort algo to perform the merge of 2
+	 * partitions
+	 * 
+	 * @createdOn 24-Apr-2015 10:58:17 am
+	 * @author ketandikshit
+	 * @param leftList
+	 *            the head of the left partioned list
+	 * @param rightList
+	 *            the head of the right partioned list
+	 * @return the node of the linked list prepared after merging of the left
+	 *         and the right partition
+	 * 
+	 */
 	private Node merge(Node leftList, Node rightList) {
 		Node temp = new Node();
 		Node head = temp;
@@ -181,13 +203,66 @@ public class LinkedList<Item extends Comparable<Item>> {
 		return head.next;
 	}
 
-	private void mergeSortTheList(LinkedList<Item> linkedList) {
-		Node head = mergeSortList(linkedList.first);
+	/**
+	 * Simply walks over each node and creates a linkedList instance for the
+	 * same, structurally
+	 * 
+	 * @createdOn 24-Apr-2015 10:54:51 am
+	 * @author ketandikshit
+	 * @param head
+	 * @return
+	 */
+	public LinkedList<Item> arrrangeList(Node head) {
+		Node currentNode = head;
+		LinkedList<Item> linkedList = new LinkedList<>();
+		linkedList.addAtHead(currentNode.item);
+		currentNode = currentNode.next;
+		while (currentNode != null) {
+			linkedList.addAtEnd(currentNode.item);
+			currentNode = currentNode.next;
+		}
+		return linkedList;
+	}
 
-		Node currNode = head;
-		while (currNode != null) {
-			System.out.println(currNode.item);
-			currNode = currNode.next;
+	/**
+	 * problem10( copied from problem10)
+	 * Remove duplicates from a sorted linked list
+	 * Algorithm:
+	 * 1. Traverse the list from the head (or start) node. While traversing.
+	 * 2. Compare each node with its next node.
+	 * 3. If data of next node is same as current node then delete the next
+	 * node.
+	 * 4. Before we delete a node, we need to store next pointer of the node
+	 * 
+	 * @createdOn 23-Apr-2015 12:07:47 am
+	 * @author ketandikshit
+	 * @param linkedList
+	 *            sorted linked-list from which the duplicates need to be
+	 *            removed
+	 */
+	public void removeDuplicatesFromSortedLinkedList(LinkedList<Item> linkedList) {
+		/* Pointer to traverse the linked list */
+		Node currentNode = linkedList.first;
+
+		/* Pointer to store the next pointer of a node to be deleted */
+		Node nextOfNextNode;
+
+		/* do nothing if the list is empty */
+		if (currentNode == null)
+			return;
+
+		/* Traverse the list till last node */
+		while (currentNode.next != null) {
+			/* Compare current node with next node */
+			if (currentNode.item.compareTo(currentNode.next.item) == 0) {
+				/* The sequence of steps is important */
+				nextOfNextNode = currentNode.next.next;
+				currentNode.next = nextOfNextNode;
+				size--;
+			} else /* This is tricky: only advance if no deletion */
+			{
+				currentNode = currentNode.next;
+			}
 		}
 	}
 
@@ -224,12 +299,37 @@ public class LinkedList<Item extends Comparable<Item>> {
 
 		LinkedList<Integer> linkedList2 = new LinkedList<Integer>();
 		linkedList2.addAtHead(100);
+		linkedList2.addAtEnd(100);
+		linkedList2.addAtEnd(100);
+		linkedList2.addAtEnd(80);
+		linkedList2.addAtEnd(90);
+		linkedList2.addAtEnd(90);
+		linkedList2.addAtEnd(90);
 		linkedList2.addAtEnd(80);
 		linkedList2.addAtEnd(60);
+		linkedList2.addAtEnd(60);
+		linkedList2.addAtEnd(60);
 		linkedList2.addAtEnd(50);
+		linkedList2.addAtEnd(40);
+		linkedList2.addAtEnd(100);
+		linkedList2.addAtEnd(50);
+		linkedList2.addAtEnd(30);
+		linkedList2.addAtEnd(30);
+		linkedList2.addAtEnd(70);
+		linkedList2.addAtEnd(20);
+		linkedList2.addAtEnd(50);
+		linkedList2.addAtEnd(50);
+		linkedList2.addAtEnd(10);
 
-		linkedList2.mergeSortTheList(linkedList2);
+		System.out.println("Before Merge Sort-->");
+		System.out.println(linkedList2.arrrangeList(linkedList2.first));
 
+		System.out.println("After Merge Sort-->");
+		LinkedList<Integer> sortedList = linkedList2.arrrangeList(linkedList2
+				.mergeSortList(linkedList2.first));
+		System.out.println(sortedList);
+		sortedList.removeDuplicatesFromSortedLinkedList(sortedList);
+		System.out.println("After Removal of Duplicates-->");
+		System.out.println(sortedList);
 	}
-
 }
