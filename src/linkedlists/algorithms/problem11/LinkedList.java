@@ -5,7 +5,7 @@
  * @typeName LinkedList
  * @year 2015
  */
-package linkedlists.problem11;
+package linkedlists.algorithms.problem11;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -291,6 +291,12 @@ public class LinkedList<Item extends Comparable<Item>> {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+
+		/*
+		 * ***********************************
+		 * Double Loops Method
+		 * ***********************************
+		 */
 		LinkedList<Integer> linkedList = new LinkedList<Integer>();
 		linkedList.addAtHead(10);
 		linkedList.addAtEnd(10);
@@ -316,6 +322,11 @@ public class LinkedList<Item extends Comparable<Item>> {
 		linkedList.removeDuplicatesUsingDoubleLoops(linkedList);
 		System.out.println("(Double Loops Method): After-->" + linkedList);
 
+		/*
+		 * ***********************************
+		 * Merge Sort Method
+		 * ***********************************
+		 */
 		LinkedList<Integer> linkedList2 = new LinkedList<Integer>();
 		linkedList2.addAtHead(100);
 		linkedList2.addAtEnd(100);
@@ -351,6 +362,12 @@ public class LinkedList<Item extends Comparable<Item>> {
 		System.out
 				.println("(Merge Sort Method) After Removal of Duplicates-->");
 		System.out.println(sortedList);
+
+		/*
+		 * ***********************************
+		 * Hashing Method
+		 * ***********************************
+		 */
 
 		LinkedList<Integer> linkedList3 = new LinkedList<Integer>();
 		linkedList3.addAtHead(10);

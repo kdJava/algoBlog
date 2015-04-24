@@ -1,0 +1,165 @@
+/**
+ * @createdOn 24-Apr-2015 12:34:07 pm
+ * @qualifiedName GeekyAlgoJava/linkedlists.algorithms.problem12/LinkedList.java
+ * @author ketandikshit
+ * @typeName LinkedList
+ * @year 2015
+ */
+package linkedlists.algorithms.problem12;
+
+/**
+ * @author ketandikshit
+ * @createdOn 24-Apr-2015 12:34:07 pm
+ * @qualifiedName GeekyAlgoJava/linkedlists.algorithms.problem12/LinkedList.java
+ * @year 2015
+ */
+public class LinkedList<Item> {
+
+	private Node first;
+	private int size;
+
+	/**
+	 * Internal data structure representing the node in linked-list
+	 * 
+	 * @author ketandikshit
+	 * @year 2015
+	 */
+	private class Node {
+		private Item item;
+		private Node next;
+
+		@Override
+		public String toString() {
+			return ("NODE[DATA:" + item + "]" + "-->" + next);
+		}
+
+	}
+
+	/**
+	 * Overriding the {@linkplain Object#toString()} to denote the linked-lists
+	 * in simple format
+	 * 
+	 * @author ketandikshit
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		String result = "LinkedList--> [";
+		if (size == 0) {
+			result += "NULL]";
+			return result;
+		}
+		int counter = 0;
+		for (Node i = first; i != null; i = i.next) {
+			if (counter == (size - 1))
+				result += i.item + "]";
+			else
+				result += i.item + "-->";
+			counter++;
+		}
+		return result;
+	}
+
+	/**
+	 * Checks if the linked list is empty
+	 * 
+	 * @return true if linked list is empty, false otherwise
+	 */
+	public boolean isEmpty() {
+		return first == null; // or size==0;
+	}
+
+	/**
+	 * Gets the current size of the linked-list
+	 * 
+	 * @return the current size of linked-list
+	 */
+	public int getSize() {
+		return size;
+	}
+
+	/**
+	 * Add the item as first element in linked-list
+	 * 
+	 * @param item
+	 *            item to be added as first element in linked-list
+	 */
+	public void addAtHead(Item item) {
+		Node newNode = new Node(); // Create new node to insert
+		newNode.item = item; // Set newNode's element to item to to be inserted
+
+		Node oldFirst = first; // save the oldFirst Node in temp variable
+		first = newNode; // Set the first to newNode
+		first.next = oldFirst; // Set the next of first to oldFirst
+		size++; // increment the size
+	}
+
+	/**
+	 * Add the item as last element in linkedList
+	 * 
+	 * @param item
+	 *            item to be added at last
+	 */
+	public void addAtEnd(Item item) {
+		Node newNode = new Node(); // Create new node to insert
+		newNode.item = item; // Set newNode's element to item to to be inserted
+		newNode.next = null; // Set the newNode's next to NULL, as it is to be
+								// inserted at end
+
+		Node currentNode = first;
+		// Lets get the lastNode;
+		while (currentNode.next != null) {
+			currentNode = currentNode.next;
+		}
+
+		currentNode.next = newNode; // set the last node's next to new Node
+		size++; // increment the size
+	}
+
+	/**
+	 * Prints an alternating sequence of nodes first from head to end and then
+	 * from end to head
+	 * 
+	 * @createdOn 24-Apr-2015 12:41:48 pm
+	 * @author ketandikshit
+	 * @param linkedlist
+	 */
+	public void alternatingPrint(LinkedList<Item> linkedlist) {
+		altFun(linkedlist.first);
+	}
+
+	private void altFun(Node node) {
+		// Recursion Terminating condition( base recursive condition)
+		if (node == null)
+			return;
+
+		// While recursion IN
+		System.out.print(node.item + "  ");
+
+		// Recursive call
+		if (node.next != null)
+			altFun(node.next.next);
+
+		// While recursion OUT
+		System.out.print(node.item + "  ");
+	}
+
+	public static void main(String[] args) {
+		LinkedList<Character> linkedlist = new LinkedList<Character>();
+		linkedlist.addAtHead('A');
+		linkedlist.addAtEnd('B');
+		linkedlist.addAtEnd('C');
+		linkedlist.addAtEnd('D');
+		linkedlist.addAtEnd('E');
+		linkedlist.addAtEnd('F');
+		linkedlist.addAtEnd('G');
+		linkedlist.addAtEnd('H');
+		linkedlist.addAtEnd('I');
+		linkedlist.addAtEnd('J');
+		linkedlist.addAtEnd('K');
+		linkedlist.addAtEnd('L');
+
+		System.out.println(linkedlist);
+		linkedlist.alternatingPrint(linkedlist);
+	}
+}

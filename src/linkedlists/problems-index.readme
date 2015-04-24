@@ -300,6 +300,14 @@ In general, Merge Sort is the best suited sorting algorithm for sorting linked l
 Time Complexity: O(n) on average (assuming that hash table access time is O(1) on average).
 Space Complexity: O(n)  
 
+*******************
+	problem-12: Print alternate nodes in a linked list from head to end and then from end to head;
+*******************  
+Write a function that takes a linked list and then prints the alternate nodes from head to end and  
+then prints the alternating nodes from end to head.  
+For eg: if the linked list is: 1-->2-->3-->4-->5, then the function should print: 1 3 5 5 3 1
+  
+ 
 
 
 
