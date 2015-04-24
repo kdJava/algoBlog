@@ -7,6 +7,9 @@
  */
 package linkedlists.problem11;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * @author ketandikshit
  * @createdOn 23-Apr-2015 10:31:25 pm
@@ -266,6 +269,22 @@ public class LinkedList<Item extends Comparable<Item>> {
 		}
 	}
 
+	public void removeDuplicatesUsingHashing(LinkedList<Item> linkedList) {
+		Set<Item> hashSet = new HashSet<Item>();
+		Node currentNode = linkedList.first;
+		Node prevCurrentNode = null;
+
+		while (currentNode != null) {
+			if (hashSet.contains(currentNode.item)) {
+				prevCurrentNode.next = currentNode.next;
+				size--;
+			} else {
+				hashSet.add(currentNode.item);
+				prevCurrentNode = currentNode;
+			}
+			currentNode = currentNode.next;
+		}
+	}
 	/**
 	 * @createdOn 23-Apr-2015 10:31:25 pm
 	 * @author ketandikshit
@@ -293,9 +312,9 @@ public class LinkedList<Item extends Comparable<Item>> {
 		linkedList.addAtEnd(10);
 		linkedList.addAtEnd(50);
 
-		System.out.println(linkedList);
+		System.out.println("(Double Loops Method): Before-->" + linkedList);
 		linkedList.removeDuplicatesUsingDoubleLoops(linkedList);
-		System.out.println(linkedList);
+		System.out.println("(Double Loops Method): After-->" + linkedList);
 
 		LinkedList<Integer> linkedList2 = new LinkedList<Integer>();
 		linkedList2.addAtHead(100);
@@ -321,15 +340,44 @@ public class LinkedList<Item extends Comparable<Item>> {
 		linkedList2.addAtEnd(50);
 		linkedList2.addAtEnd(10);
 
-		System.out.println("Before Merge Sort-->");
+		System.out.println("(Merge Sort Method) Before Merge Sort-->");
 		System.out.println(linkedList2.arrrangeList(linkedList2.first));
 
-		System.out.println("After Merge Sort-->");
+		System.out.println("(Merge Sort Method) After Merge Sort-->");
 		LinkedList<Integer> sortedList = linkedList2.arrrangeList(linkedList2
 				.mergeSortList(linkedList2.first));
 		System.out.println(sortedList);
 		sortedList.removeDuplicatesFromSortedLinkedList(sortedList);
-		System.out.println("After Removal of Duplicates-->");
+		System.out
+				.println("(Merge Sort Method) After Removal of Duplicates-->");
 		System.out.println(sortedList);
+
+		LinkedList<Integer> linkedList3 = new LinkedList<Integer>();
+		linkedList3.addAtHead(10);
+		linkedList3.addAtEnd(10);
+		linkedList3.addAtEnd(10);
+		linkedList3.addAtEnd(10);
+		linkedList3.addAtEnd(10);
+		linkedList3.addAtEnd(20);
+		linkedList3.addAtEnd(10);
+		linkedList3.addAtEnd(10);
+		linkedList3.addAtEnd(30);
+		linkedList3.addAtEnd(30);
+		linkedList3.addAtEnd(40);
+		linkedList3.addAtEnd(10);
+		linkedList3.addAtEnd(50);
+		linkedList3.addAtEnd(10);
+		linkedList3.addAtEnd(50);
+		linkedList3.addAtEnd(10);
+		linkedList3.addAtEnd(50);
+		linkedList3.addAtEnd(10);
+		linkedList3.addAtEnd(50);
+
+		System.out.println("(Hashing Method):Before-->" + linkedList3);
+
+		linkedList3.removeDuplicatesUsingHashing(linkedList3);
+
+		System.out.println("(Hashing Method):After-->" + linkedList3);
+
 	}
 }
