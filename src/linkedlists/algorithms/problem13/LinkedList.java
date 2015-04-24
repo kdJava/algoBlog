@@ -1,16 +1,16 @@
 /**
- * @createdOn 24-Apr-2015 12:34:07 pm
- * @qualifiedName GeekyAlgoJava/linkedlists.algorithms.problem12/LinkedList.java
+ * @createdOn 24-Apr-2015 1:11:39 pm
+ * @qualifiedName GeekyAlgoJava/linkedlists.algorithms.problem13/LinkedList.java
  * @author ketandikshit
  * @typeName LinkedList
  * @year 2015
  */
-package linkedlists.algorithms.problem12;
+package linkedlists.algorithms.problem13;
 
 /**
  * @author ketandikshit
- * @createdOn 24-Apr-2015 12:34:07 pm
- * @qualifiedName GeekyAlgoJava/linkedlists.algorithms.problem12/LinkedList.java
+ * @createdOn 24-Apr-2015 1:11:39 pm
+ * @qualifiedName GeekyAlgoJava/linkedlists.algorithms.problem13/LinkedList.java
  * @year 2015
  */
 public class LinkedList<Item> {
@@ -116,51 +116,40 @@ public class LinkedList<Item> {
 		size++; // increment the size
 	}
 
+	public void moveLastToFirst(LinkedList<Item> linkedlist) {
+		Node secondLastNode = null;
+		Node lastNode = linkedlist.first;
+
+		while (lastNode.next != null) {
+			secondLastNode = lastNode;
+			lastNode = lastNode.next;
+		}
+		linkedlist.addAtHead(secondLastNode.next.item);
+		secondLastNode.next = null;
+		size--;
+	}
 	/**
-	 * problem12
-	 * Prints an alternating sequence of nodes first from head to end and then
-	 * from end to head
-	 * 
-	 * @createdOn 24-Apr-2015 12:41:48 pm
+	 * @createdOn 24-Apr-2015 1:11:39 pm
 	 * @author ketandikshit
-	 * @param linkedlist
+	 * @param args
 	 */
-	public void alternatingPrint(LinkedList<Item> linkedlist) {
-		altFun(linkedlist.first);
-	}
-
-	private void altFun(Node node) {
-		// Recursion Terminating condition( base recursive condition)
-		if (node == null)
-			return;
-
-		// While recursion IN
-		System.out.print(node.item + "  ");
-
-		// Recursive call
-		if (node.next != null)
-			altFun(node.next.next);
-
-		// While recursion OUT
-		System.out.print(node.item + "  ");
-	}
-
 	public static void main(String[] args) {
-		LinkedList<Character> linkedlist = new LinkedList<Character>();
-		linkedlist.addAtHead('A');
-		linkedlist.addAtEnd('B');
-		linkedlist.addAtEnd('C');
-		linkedlist.addAtEnd('D');
-		linkedlist.addAtEnd('E');
-		linkedlist.addAtEnd('F');
-		linkedlist.addAtEnd('G');
-		linkedlist.addAtEnd('H');
-		linkedlist.addAtEnd('I');
-		linkedlist.addAtEnd('J');
-		linkedlist.addAtEnd('K');
-		linkedlist.addAtEnd('L');
+		LinkedList<Character> linkedList = new LinkedList<Character>();
+		linkedList.addAtHead('A');
+		linkedList.addAtEnd('B');
+		linkedList.addAtEnd('C');
+		linkedList.addAtEnd('D');
+		linkedList.addAtEnd('E');
+		linkedList.addAtEnd('F');
+		linkedList.addAtEnd('G');
+		linkedList.addAtEnd('H');
+		linkedList.addAtEnd('I');
+		linkedList.addAtEnd('J');
+		linkedList.addAtEnd('K');
 
-		System.out.println(linkedlist);
-		linkedlist.alternatingPrint(linkedlist);
+		System.out.println("Before-->" + linkedList);
+		linkedList.moveLastToFirst(linkedList);
+		System.out.println("After-->" + linkedList);
+
 	}
 }
