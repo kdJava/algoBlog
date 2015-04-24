@@ -284,3 +284,38 @@ then removeDuplicates() should convert the list to 11->21->43->60.
 2. While traversing, Compare each node with its next node. 
 3. If data of next node is same as current node then delete the next node. 
 4. Before we delete a node, we need to store next pointer of the node
+  
+*******************
+	problem-11: Remove duplicates from an unsorted linked list.
+*******************
+Write a removeDuplicates() function which takes a list and deletes any  
+duplicate nodes from the list. The list is not sorted.  
+
+	method-1: Using two loops; (trivial)
+This is the simple way where two loops are used.  
+Outer loop is used to pick the elements one by one and inner loop compares  
+the picked element with rest of the elements.  
+
+	method-2: Use Sorting; (After Sorting, it becomes the question: problem-10)
+In general, Merge Sort is the best suited sorting algorithm for sorting linked lists efficiently.
+1. Sort the elements using Merge Sort. We will soon be writing a post about sorting a linked list. O(nLogn)
+2. Remove duplicates in linear time using the algorithm for removing duplicates in sorted Linked List. O(n)  
+  
+  Please note that this method doesn’t preserve the original order of elements.  
+  Time Complexity: O(nLogn)
+   
+	method-3: Use Hashing (trivial)
+1) We traverse the link list from head to end. 
+2) For every newly encountered element, we check whether it is in the hash table: 
+3) If yes, we remove it; otherwise we put it in the hash table.  
+
+Time Complexity: O(n) on average (assuming that hash table access time is O(1) on average).
+Space Complexity: O(n)  
+
+*******************
+	problem-12: Print alternate nodes in a linked list from head to end and then from end to head;
+*******************  
+Write a function that takes a linked list and then prints the alternate nodes from head to end and  
+then prints the alternating nodes from end to head.  
+For eg: if the linked list is: 1-->2-->3-->4-->5, then the function should print: 1 3 5 5 3 1
+  
