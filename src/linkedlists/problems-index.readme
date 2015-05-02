@@ -320,6 +320,20 @@ For example, if the given Linked List is 1->2->3->4->5, then the function should
 	i) Make second last as last (secLast->next = NULL).
 	ii) Set next of last as head (last->next = *head_ref).
 	iii) Make last as head ( *head_ref = last)  
+	
+*******************
+	problem-14: Pairwise swap elements of a given linked list
+*******************
+Given a singly linked list, write a function to swap elements pairwise.  
+For example, if the linked list is 1->2->3->4->5 then the function should change it to 2->1->4->3->5,  
+and if the linked list is 1->2->3->4->5->6 then the function should change it to 2->1->4->3->6->5.  
+
+	METHOD 1 (Iterative) 
+Start from the head node and traverse the list. While traversing swap data of each node with its next node’s data.  
+Time complexity: O(n)  
+
+	METHOD 2 (Recursive)
+If there are 2 or more than 2 nodes in Linked List then swap the first two nodes and recursively call for rest of the list. 
 
     
     
