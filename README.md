@@ -305,9 +305,9 @@ In general, Merge Sort is the best suited sorting algorithm for sorting linked l
   Time Complexity: O(nLogn)
    
 	method-3: Use Hashing (trivial)
-1) We traverse the link list from head to end. 
-2) For every newly encountered element, we check whether it is in the hash table: 
-3) If yes, we remove it; otherwise we put it in the hash table.  
+1. We traverse the link list from head to end. 
+2. For every newly encountered element, we check whether it is in the hash table: 
+3. If yes, we remove it; otherwise we put it in the hash table.  
 
 Time Complexity: O(n) on average (assuming that hash table access time is O(1) on average).
 Space Complexity: O(n)  
@@ -333,5 +333,18 @@ For example, if the given Linked List is 1->2->3->4->5, then the function should
 	ii) Set next of last as head (last->next = *head_ref).
 	iii) Make last as head ( *head_ref = last)  
 	
+*******************
+	problem-14: Pairwise swap elements of a given linked list
+*******************
+Given a singly linked list, write a function to swap elements pairwise.  
+For example, if the linked list is 1->2->3->4->5 then the function should change it to 2->1->4->3->5,  
+and if the linked list is 1->2->3->4->5->6 then the function should change it to 2->1->4->3->6->5.  
+
+	METHOD 1 (Iterative) 
+Start from the head node and traverse the list. While traversing swap data of each node with its next node’s data.  
+Time complexity: O(n)  
+
+	METHOD 2 (Recursive)
+If there are 2 or more than 2 nodes in Linked List then swap the first two nodes and recursively call for rest of the list. 
 	    
   
