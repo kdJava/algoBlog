@@ -328,12 +328,49 @@ Given a singly linked list, write a function to swap elements pairwise.
 For example, if the linked list is 1->2->3->4->5 then the function should change it to 2->1->4->3->5,  
 and if the linked list is 1->2->3->4->5->6 then the function should change it to 2->1->4->3->6->5.  
 
-	METHOD 1 (Iterative) 
+	METHOD 1: Iterative
 Start from the head node and traverse the list. While traversing swap data of each node with its next node’s data.  
 Time complexity: O(n)  
 
-	METHOD 2 (Recursive)
-If there are 2 or more than 2 nodes in Linked List then swap the first two nodes and recursively call for rest of the list. 
+	METHOD 2: Recursive
+If there are 2 or more than 2 nodes in Linked List then swap the first two nodes and recursively call for rest of the list.  
+Time complexity: O(n)  
+ 
+	METHOD 3: Changing the links of the nodes
+Up till now we were only swapping the data of the nodes, But we will now actually swap the entire node by changing the links.  
+Time Complexity: O(n)  
+
+
+*******************
+	problem-15: Create a new linked list containing the elements(in sorted order) by having 
+	intersection from 2 already sorted lists;
+*******************  
+Given two lists sorted in increasing order, create and return a new list representing the intersection of the two lists.  
+The new list should be made with its own memory — the original lists should not be changed.  
+
+For example, let the first linked list be 1->2->3->4->6 and second linked list be 2->4->6->8,  
+then your function should create and return a third list as 2->4->6.  
+
+	Method 1: Iterative
+This solution is structurally very similar to the above, but it avoids using a dummy node,  
+Instead, it maintains a struct node** pointer, lastPtrRef, that always points to the last pointer of the result list.  
+This solves the same case that the dummy node did — dealing with the result list when it is empty.  
+If you are trying to build up a list at its tail, either the dummy node or the struct node** “reference” strategy can be used.  
+Time Complexity: O(m+n) where m and n are number of nodes in first and second linked lists respectively.  
+
+
+
+	Method 2: Recursive
+Time Complexity: O(m+n) where m and n are number of nodes in first and second linked lists respectively.  
+
+
+
+
+
+
+
+
+  
 
     
     

@@ -30,7 +30,7 @@ public class LinkedList<Item> {
 
 		@Override
 		public String toString() {
-			return ("NODE[DATA:" + item + "]" + "-->" + next);
+			return ("Node[" + item + "]");
 		}
 
 	}
@@ -45,6 +45,7 @@ public class LinkedList<Item> {
 	@Override
 	public String toString() {
 		String result = "LinkedList--> [";
+
 		if (size == 0) {
 			result += "NULL]";
 			return result;
@@ -59,7 +60,6 @@ public class LinkedList<Item> {
 		}
 		return result;
 	}
-
 	/**
 	 * Checks if the linked list is empty
 	 * 
@@ -190,6 +190,78 @@ public class LinkedList<Item> {
 	}
 
 	/**
+	 * problem-14
+	 * Pairwise swap elements of a given linked list
+	 * By Changing the links;
+	 * Up till now we were only swapping the data of the nodes, But we will now
+	 * actually swap the entire node by changing the links.
+	 * Time Complexity: O(n)
+	 * 
+	 * @createdOn 04-May-2015 2:59:19 pm
+	 * @author ketandikshit
+	 * @param linkedList
+	 */
+	public void pairwiseSwapByChangingLinks(LinkedList<Item> linkedList) {
+		swapByChangingLinks(linkedList.first);
+	}
+
+	/**
+	 * Code that performs the pairwise swapping of the adjacent nodes of the
+	 * linked-list by changing the links
+	 * 
+	 * @createdOn 04-May-2015 2:59:24 pm
+	 * @author ketandikshit
+	 * @param head
+	 *            the head of the linked list
+	 */
+	private void swapByChangingLinks(Node head) {
+		// Empty linked-list check
+		if (head == null)
+			return;
+
+		// Single Node list check
+		if (head.next == null)
+			return;
+
+		// Swap the head node with the second Node in list
+		Node newHead = head.next;
+		Node temp = head.next.next;
+		newHead.next = head;
+		head.next = temp;
+
+		// initialize the firstNode to new Head
+		first = newHead;
+
+		// Recursively swap nodes pairwise by interchanging links
+		swapLinks(first.next, first.next.next, first.next.next.next);
+	}
+
+	/**
+	 * helper method: Recursively swaps the links of the adjacent nodes
+	 * 
+	 * @createdOn 04-May-2015 2:11:11 pm
+	 * @author ketandikshit
+	 * @param prevNode
+	 *            the left of current node
+	 * @param currNode
+	 *            the current node
+	 * @param nextNode
+	 *            the right of the current node
+	 */
+	private void swapLinks(Node prevNode, Node currNode, Node nextNode) {
+		if (nextNode.next != null) {
+			prevNode.next = nextNode;
+			Node temp = nextNode.next;
+			nextNode.next = currNode;
+			currNode.next = temp;
+			swapLinks(currNode, currNode.next, currNode.next.next);
+		} else {
+			prevNode.next = nextNode;
+			nextNode.next = currNode;
+			currNode.next = null;
+		}
+	}
+	/**
 	 * @createdOn 24-Apr-2015 1:44:46 pm
 	 * @author ketandikshit
 	 * @param args
@@ -211,6 +283,8 @@ public class LinkedList<Item> {
 		linkedList.pairWiseSwap(linkedList);
 		System.out.println(linkedList);
 		linkedList.pairwiseSwapUsingRecursion(linkedList);
+		System.out.println(linkedList);
+		linkedList.pairwiseSwapByChangingLinks(linkedList);
 		System.out.println(linkedList);
 	}
 
