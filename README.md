@@ -87,27 +87,34 @@ If there is a loop, fast ptr will go around the loop and meet with slow ptr.
 If there is no loop, the fast prt will get to the end of the list without meeting up with the slow ptr.  
 
 
-	Size-of-loop: start the slow ptr again from the current position(one step at a time) until it reaches the current position gain after completing the loop; While moving kepp the counter for counting the number of loops encountered, this counter will give the size of loop;  
+**Size-of-loop**: start the slow ptr again from the current position(one step at a time) until it reaches the current position gain after completing the loop; While moving kepp the counter for counting the number of loops encountered, this counter will give the size of loop;  
 
 
-	Starting point of loop: Set the slow ptr from start and fast ptr from its current position , move them both one step at a time now, until they meet at a position, this meeting point will give you the start of the loop;  
+**Starting point of loop**: Set the slow ptr from start and fast ptr from its current position , move them both one step at a time now, until they meet at a position, this meeting point will give you the start of the loop;  
 	  
 	  
-Correctness of algorithm for finding start node of loop:  
-Lets assume that linked list has a “non-looped” part of size k.  
-When we apply Floyd’s cycle detection algorithm, we know that after k steps,  
---slowPtr will be at start of loop, and is 0 steps into the loop.  
---fastPtr is k steps into the loop. since k might be much larger than loop_size,it is actually k%loop_size. Let’s say it as p. So fastPtr is p steps into the loop.  
---slowPtr is p steps behind fastPtr.  
---fastPtr is loop_size – p steps behind slowPtr.  
---fastPtr catches up to slowPtr at a rate of one step per unit of time.  
+**Correctness of algorithm for finding start node of loop:**  
+*Lets assume that linked list has a `non-looped` part of size k.*  
+*When we apply Floyd’s cycle detection algorithm, we know that after k steps,*  
 
-From above points, after loop_size – p steps, fastPtr and slowPtr meet each other, which means they will be p steps before start of the loop.  
-Since p = k%loop_size ( k = p+M*loop_size), it is correct to say that, fastPtr, slowPtr are k steps from start node of the loop.  
-If we reinitialise slowPtr to head node and start moving both pointers one node at a time. they both meet at start node of the loop.  
+-`slowPtr will be at start of loop, and is 0 steps into the loop.`  
 
-	Printing the loop(trivial): starting from the starting point of the loop , move one step at a time equal to size-of-loop; While moving 
-keep on printing the the nodes, this will give you all the  nodes in cycle;  
+-`fastPtr is k steps into the loop. since k might be much larger than loop_size,`  
+-`it is actually *k%loop_size*. Let’s say it as p. So fastPtr is p steps into the loop.`  
+
+-`slowPtr is p steps behind fastPtr`  
+
+-`fastPtr is *(loop_size – p)* steps behind slowPtr`  
+
+-`fastPtr catches up to slowPtr at a rate of one step per unit of time`  
+
+-`From above points, after *(loop_size – p)* steps, fastPtr and slowPtr meet each other, which means they will be p steps before start of the loop.`  
+-`Since *p = k%loop_size ( k = p+M*loop_size)*, it is correct to say that, fastPtr, slowPtr are k steps from start node of the loop.` 
+-`If we reinitialise slowPtr to head node and start moving both pointers one node at a time. they both meet at start node of the loop.`  
+
+**Printing the loop(trivial)**
+* Starting from the starting point of the loop , move one step at a time equal to size-of-loop; While moving 
+keep on printing the the nodes, this will give you all the  nodes in cycle;*  
 
 
 ######	Method 4. Brent’s Cycle detection Algorithm  
@@ -130,27 +137,27 @@ There are two singly linked lists in a system. By some programming error the end
 
 ######	Method 1. Simply use two loops
 Use 2 nested for loops. 
-Outer loop will be for each node of the 1st list and inner loop will be for 2nd list. 
-In the inner loop, check if any of nodes of 2nd list is same as the current node of first linked list. 
-Time complexity of this method will be O(m*n) where m and n are the number of nodes in two lists.
+-Outer loop will be for each node of the 1st list and inner loop will be for 2nd list. 
+-In the inner loop, check if any of nodes of 2nd list is same as the current node of first linked list. 
+**Time complexity of this method will be O(m*n) where m and n are the number of nodes in two lists.**
 
 
  
 ######	Method 2. Mark Visited Nodes
 This solution requires modifications to basic linked list data structure. 
-Have a visited flag with each node. 
-Traverse the first linked list and keep marking visited nodes. 
-Now traverse second linked list, 
-If you see a visited node again then there is an intersection point, return the intersecting node. 
-This solution works in O(m+n) but requires additional information with each node. 
+-Have a visited flag with each node. 
+-Traverse the first linked list and keep marking visited nodes. 
+-Now traverse second linked list, 
+-If you see a visited node again then there is an intersection point, return the intersecting node. 
+-*This solution works in O(m+n) but requires additional information with each node.* 
 
 
 
 ######	Method 3. Hash based data structure
 A variation of the above solution that doesn’t require modification to basic data structure can be implemented using hash. 
-Traverse the first linked list and store the addresses of visited nodes in a hash. 
-Now traverse the second linked list and if you see an address that already exists in hash then return the intersecting node.
-Time complexity is O(m+n) but requires additional space equal O(N) or O(M).
+-Traverse the first linked list and store the addresses of visited nodes in a hash. 
+-Now traverse the second linked list and if you see an address that already exists in hash then return the intersecting node.
+-*Time complexity is O(m+n) but requires additional space equal O(N) or O(M).*
 
 
 
@@ -160,7 +167,7 @@ Time complexity is O(m+n) but requires additional space equal O(N) or O(M).
 	3) Get the difference of counts d = abs(c1 – c2).
 	4) Now traverse the bigger list from the first node till d nodes so that from here onwards both the lists have equal no of nodes.
 	5) Then we can traverse both the lists in parallel till we come across a common node. 
-	(Note that getting a common node is done by comparing the address of the nodes).
+	*(Note that getting a common node is done by comparing the address of the nodes).*
 
 
 
@@ -170,8 +177,8 @@ Time complexity is O(m+n) but requires additional space equal O(N) or O(M).
 	2. Now view the problem as find the loop in the second linked list. So the problem is solved.
 	3. Since we already know the length of the loop(size of first linked list) we can traverse those many number of nodes in second list, and then start another pointer from the beginning of second list. we have to traverse until they are equal, and that is the required intersection point.
 	4. remove the circle from the linked list.
-Time Complexity: O(m+n)
-Auxiliary Space: O(1)	
+**Time Complexity: O(m+n)**
+**Auxiliary Space: O(1)**	
 
 
 
@@ -181,20 +188,20 @@ Auxiliary Space: O(1)
    Let Z be the length of the linked list from intersection point to End of
    the linked list including the intersection node.
    We Have
-           X + Z = C1;
-           Y + Z = C2;
+           `X + Z = C1;`
+           `Y + Z = C2;`
 2) Reverse first linked list.
 3) Traverse Second linked list. Let C3 be the length of second list - 1. 
      Now we have
-        X + Y = C3
+        `X + Y = C3`
      We have 3 linear equations. By solving them, we get
-       X = (C1 + C3 – C2)/2;
-       Y = (C2 + C3 – C1)/2;
-       Z = (C1 + C2 – C3)/2;
-      WE GOT THE INTERSECTION POINT.
+       `X = (C1 + C3 – C2)/2;`
+       `Y = (C2 + C3 – C1)/2;`
+       `Z = (C1 + C2 – C3)/2;`
+      *WE GOT THE INTERSECTION POINT.*
 4)  Reverse first linked list.
-Advantage: No Comparison of pointers.
-Disadvantage : Modifying linked list(Reversing list).
+*Advantage: No Comparison of pointers.*
+*Disadvantage : Modifying linked list(Reversing list).*
 
 **Time complexity: O(m+n)**
 **Auxiliary Space: O(1)**
@@ -202,8 +209,8 @@ Disadvantage : Modifying linked list(Reversing list).
 
 
 ######	Method 7. Method To Detect if there is an intersection in list or Not
-(Traverse both lists and compare addresses of last nodes) 
-This method is only to detect if there is an intersection point or not.
+*Traverse both lists and compare addresses of last nodes* 
+**This method is only to detect if there is an intersection point or not.**
 1) Traverse the list 1, store the last node address.
 2) Traverse the list 2, store the last node address.
 3) If nodes stored in 1 and 2 are same then they are intersecting.
@@ -221,23 +228,22 @@ A simple solution is to use a stack of list nodes. This mainly involves three st
 1) Traverse the given list from head to tail and push every visited node to stack.
 2) Traverse the list again. For every visited node, pop a node from stack and compare data of popped node with currently visited node.
 3) If all nodes matched, then return true, else false.
-Time complexity of above method is O(n), but it requires O(n) extra space. Following methods solve this with constant extra space.
+**Time complexity of above method is O(n), but it requires O(n) extra space. Following methods solve this with constant extra space.**
 
 
 
 ######	METHOD 2: By reversing the list
-This method takes O(n) time and O(1) extra space.
+*This method takes O(n) time and O(1) extra space.*
 1) Get the middle of the linked list.
 2) Reverse the second half of the linked list.
 3) Check if the first half and second half are identical.
 4) Construct the original linked list by reversing the second half again and attaching it back to the first half.  
 
-To divide the list in two halves  
-
-When number of nodes are even, the first and second half contain exactly half nodes. 
-The challenging thing in this method is to handle the case when number of nodes are odd. 
-We don’t want the middle node as part of any of the lists as we are going to compare them for equality. 
-For odd case, we use a separate variable ‘midnode’.
+**To divide the list in two halves**  
+*When number of nodes are even, the first and second half contain exactly half nodes.* 
+*The challenging thing in this method is to handle the case when number of nodes are odd.* 
+*We don’t want the middle node as part of any of the lists as we are going to compare them for equality.* 
+*For odd case, we use a separate variable ‘midnode’.*
 	
 
 
@@ -246,17 +252,23 @@ Use two pointers left and right. Move right and left using recursion and check f
 1) Sub-list is palindrome.
 2) Value at current left and right are matching.  
 
-If both above conditions are true then return true.The idea is to use function call stack as container.Recursively traverse till the end of list. When we return from last NULL, we will be at last node. The last node to be compared with first node of list.In order to access first node of list, we need list head to be available in the last call of recursion. 
-Hence we pass head also to the recursive function. If they both match we need to compare (2, n-2) nodes. 
-Again when recursion falls back to (n-2)nd node, we need reference to 2nd node from head. 
-We advance the head pointer in previous call, to refer to next node in the list.
-However, the trick in identifying double pointer. Passing single pointer is as good as pass-by-value, and we will pass the same pointer again and again. We need to pass the address of head pointer for reflecting the changes in parent recursive calls.
++*If both above conditions are true then return true.*
++*The idea is to use function call stack as container.*
++*Recursively traverse till the end of list.*
++*When we return from last NULL, we will be at last node.*
++*The last node to be compared with first node of list.*
+-*In order to access first node of list, we need list head to be available in the last call of recursion.* 
+-*Hence we pass head also to the recursive function. If they both match we need to compare (2, n-2) nodes.* 
+-*Again when recursion falls back to (n-2)nd node, we need reference to 2nd node from head.* 
+-*We advance the head pointer in previous call, to refer to next node in the list.*  
+
+`However, the trick in identifying double pointer. Passing single pointer is as good as pass-by-value, and we will pass the same pointer again and again. We need to pass the address of head pointer for reflecting the changes in parent recursive calls.`
   
 *******************
 ####	problem-9: Given a linked list which is sorted, how will you insert in sorted way;
 *******************
 ####### Algorithm:  
-Let input linked list is sorted in increasing order.  
+*Let input linked list is sorted in increasing order.*  
 
 1. If Linked list is empty then make the node as head and return it.
 2. If value of the node to be inserted is smaller than value of head node, 
