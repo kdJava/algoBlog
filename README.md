@@ -1,4 +1,4 @@
-# algoBlog
+# Algorithmist's Blog : Always learning !!!
 This repo conntains some basic data structures and algorithmic questions for practice; All the questions with the solutions can be found posted on my blog;
 
 *******************
@@ -22,7 +22,7 @@ To make this solution work we can mark the end node as a dummy node.(No other op
 *******************
 ####	problem-3: Write a function to print the middle of a given linked list
 *******************
-Method 1: Traverse the whole linked list and count the no. of nodes. Now traverse the list again till count/2 and return the node at count/2.  
+**Method 1**: Traverse the whole linked list and count the no. of nodes Now traverse the list again till count/2 and return the node at count/2.  
 Method 2:Traverse linked list using two pointers. Move one pointer by one and other pointer by two. 
 When the fast pointer reaches end slow pointer will reach middle of the linked list.  
 
