@@ -419,8 +419,8 @@ For eg: lnkLst1= 1-->5-->8-->17-->25 and lnkLst2= -10-->2-->7-->13-->21-->30
 Then the final sorted list should be: -10-->1-->2-->5-->7-->8-->13-->17-->21-->25-->30
 
 There are many cases to deal with: either ‘a’ or ‘b’ may be empty, during processing either ‘a’ or ‘b’ may run out first, and finally there’s the problem of starting the result list empty, and building it up while going through ‘a’ and ‘b’.
-
-	Method1: Iterative (Time Complexity O(m+n) )
+---------------
+	Method 1: Iterative (Time Complexity O(m+n) )
 	1. create a new node say result
 	2. navigate through both the linked lists at the same time, starting from head
 	3. compare the first node values of both the linked lists
@@ -429,6 +429,18 @@ There are many cases to deal with: either ‘a’ or ‘b’ may be empty, durin
 	6. again compare the node values
 	7. keep doing until one list gets over
 	8. copy the rest of the nodes of unfinished list to the result 
+	
+---------------	
+	Method 2: Recursive (Time Complexity O(m+n))
+	Base Case :
+	If List A gets fin­ished , return List B.  
+	
+	If List B gets fin­ished, return List A.  
+	Steps:  
+	1. Cre­ate a result node and ini­tial­ize it as NULL
+	2. Check which node (List A or List B) has a smaller value.
+	3. Whichever is smaller, add it to the result node.
+	4. Make recur­sive call and add the return node as result.next
 
 
 
