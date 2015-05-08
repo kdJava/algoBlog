@@ -218,11 +218,13 @@ A variation of the above solution that doesn’t require modification to basic d
 
 ######	Method 7. Method To Detect if there is an intersection in list or Not
 *Traverse both lists and compare addresses of last nodes* 
-**This method is only to detect if there is an intersection point or not.**
-1) Traverse the list 1, store the last node address.
-2) Traverse the list 2, store the last node address.
-3) If nodes stored in 1 and 2 are same then they are intersecting.
-Time complexity of this method is O(m+n) and used Auxiliary space is O(1)
+**This method is only to detect if there is an intersection point or not.**  
+
+- Traverse the list 1, store the last node address.
+- Traverse the list 2, store the last node address.
+- If nodes stored in 1 and 2 are same then they are intersecting.  
+
+*Time complexity of this method is O(m+n) and used Auxiliary space is O(1)*
 
 
 
@@ -241,34 +243,39 @@ A simple solution is to use a stack of list nodes. This mainly involves three st
 
 
 ######	METHOD 2: By reversing the list
-*This method takes O(n) time and O(1) extra space.*
-1) Get the middle of the linked list.
-2) Reverse the second half of the linked list.
-3) Check if the first half and second half are identical.
-4) Construct the original linked list by reversing the second half again and attaching it back to the first half.  
+*This method takes O(n) time and O(1) extra space.*  
+
+- Get the middle of the linked list.
+- Reverse the second half of the linked list.
+- Check if the first half and second half are identical.
+- Construct the original linked list by reversing the second half again and attaching it back to the first half.  
+  
 
 **To divide the list in two halves**  
-*When number of nodes are even, the first and second half contain exactly half nodes.* 
-*The challenging thing in this method is to handle the case when number of nodes are odd.* 
-*We don’t want the middle node as part of any of the lists as we are going to compare them for equality.* 
-*For odd case, we use a separate variable ‘midnode’.*
+
+*When number of nodes are even, the first and second half contain exactly half nodes.*  
+*The challenging thing in this method is to handle the case when number of nodes are odd.*  
+*We don’t want the middle node as part of any of the lists as we are going to compare them for equality.*  
+*For odd case, we use a separate variable ‘midnode’.*  
+
 	
 
 
 ######	METHOD 3: Using Recursion
-Use two pointers left and right. Move right and left using recursion and check for following in each recursive call.
-1) Sub-list is palindrome.
-2) Value at current left and right are matching.  
+*Use two pointers left and right. Move right and left using recursion and check for following in each recursive call.*
+	- Sub-list is palindrome.
+	- Value at current left and right are matching.
 
-+*If both above conditions are true then return true.*
-+*The idea is to use function call stack as container.*
-+*Recursively traverse till the end of list.*
-+*When we return from last NULL, we will be at last node.*
-+*The last node to be compared with first node of list.*
--*In order to access first node of list, we need list head to be available in the last call of recursion.* 
--*Hence we pass head also to the recursive function. If they both match we need to compare (2, n-2) nodes.* 
--*Again when recursion falls back to (n-2)nd node, we need reference to 2nd node from head.* 
--*We advance the head pointer in previous call, to refer to next node in the list.*  
+
++ *If both the above conditions are true then return true.*
++ *The idea is to use function call stack as container.*
++ *Recursively traverse till the end of list.*
++ *When we return from last NULL, we will be at last node.*
++ *The last node to be compared with first node of list.*
++ *In order to access first node of list, we need list head to be available in the last call of recursion.* 
++ *Hence we pass head also to the recursive function. If they both match we need to compare (2, n-2) nodes.* 
++ *Again when recursion falls back to (n-2)nd node, we need reference to 2nd node from head.* 
++ *We advance the head pointer in previous call, to refer to next node in the list.*   
 
 `However, the trick in identifying double pointer. Passing single pointer is as good as pass-by-value, and we will pass the same pointer again and again. We need to pass the address of head pointer for reflecting the changes in parent recursive calls.`
   
@@ -292,11 +299,10 @@ Use two pointers left and right. Move right and left using recursion and check f
 *******************
 ####	problem-10: Remove duplicates from a sorted linked list.
 *******************
-Write a removeDuplicates() function which takes a list sorted linked list and deletes any duplicate nodes from the list.  
-The list should only be traversed once.  
+*Write a removeDuplicates() function which takes a list sorted linked list and deletes any duplicate nodes from the list. The list should only be traversed once.*  
 
-For example if the linked list is 11->11->11->21->43->43->60 ,  
-then removeDuplicates() should convert the list to 11->21->43->60.  
+`For example if the linked list is 11->11->11->21->43->43->60 ,`  
+`then removeDuplicates() should convert the list to 11->21->43->60.`  
   
 
 #######	Algorithm:
@@ -308,21 +314,20 @@ then removeDuplicates() should convert the list to 11->21->43->60.
 *******************
 ####	problem-11: Remove duplicates from an unsorted linked list.
 *******************
-Write a removeDuplicates() function which takes a list and deletes any  
-duplicate nodes from the list. The list is not sorted.  
+*Write a removeDuplicates() function which takes a list and deletes any* 
+*duplicate nodes from the list. The list is not sorted.*  
 
 ######	Method-1: Using two loops; (trivial)
-This is the simple way where two loops are used.  
-Outer loop is used to pick the elements one by one and inner loop compares  
-the picked element with rest of the elements.  
+- This is the simple way where two loops are used.  
+- Outer loop is used to pick the elements one by one and inner loop compares the picked element with rest of the elements.  
 
 ######	Method-2: Use Sorting; (After Sorting, it becomes the question: problem-10)
-In general, Merge Sort is the best suited sorting algorithm for sorting linked lists efficiently.
+*In general, Merge Sort is the best suited sorting algorithm for sorting linked lists efficiently.*
 1. Sort the elements using Merge Sort. We will soon be writing a post about sorting a linked list. O(nLogn)
 2. Remove duplicates in linear time using the algorithm for removing duplicates in sorted Linked List. O(n)  
   
-  Please note that this method doesn’t preserve the original order of elements.  
-  Time Complexity: O(nLogn)
+  *Please note that this method doesn’t preserve the original order of elements.*  
+  **Time Complexity: O(NLogN)**
    
 ######	Method-3: Use Hashing (trivial)
 1. We traverse the link list from head to end. 
@@ -337,13 +342,13 @@ In general, Merge Sort is the best suited sorting algorithm for sorting linked l
 *******************  
 Write a function that takes a linked list and then prints the alternate nodes from head to end and  
 then prints the alternating nodes from end to head.  
-For eg: if the linked list is: 1-->2-->3-->4-->5, then the function should print: 1 3 5 5 3 1  
+*For eg: if the linked list is: 1-->2-->3-->4-->5, then the function should print: 1 3 5 5 3 1*  
   
 *******************
 ####	problem-13: Move last element to front of a given Linked List
 *******************
 Write a function that moves last element to front in a given Singly Linked List.  
-For example, if the given Linked List is 1->2->3->4->5, then the function should change the list to 5->1->2->3->4.
+*For example, if the given Linked List is 1->2->3->4->5, then the function should change the list to 5->1->2->3->4.*
   
 
 #######	Algorithm:  
@@ -357,19 +362,19 @@ For example, if the given Linked List is 1->2->3->4->5, then the function should
 ####	problem-14: Pairwise swap elements of a given linked list
 *******************
 Given a singly linked list, write a function to swap elements pairwise.  
-For example, if the linked list is 1->2->3->4->5 then the function should change it to 2->1->4->3->5,  
-and if the linked list is 1->2->3->4->5->6 then the function should change it to 2->1->4->3->6->5.  
+*For example, if the linked list is 1->2->3->4->5 then the function should change it to 2->1->4->3->5,*  
+*and if the linked list is 1->2->3->4->5->6 then the function should change it to 2->1->4->3->6->5.* 
 
 ######	METHOD 1: Iterative
 Start from the head node and traverse the list. While traversing swap data of each node with its next node’s data.  
 **Time complexity: O(n)**  
 
 ######	METHOD 2: Recursive
-If there are 2 or more than 2 nodes in Linked List then swap the first two nodes and recursively call for rest of the list.  
+*If there are 2 or more than 2 nodes in Linked List then swap the first two nodes and recursively call for rest of the list.*  
 **Time complexity: O(n)**  
  
 ######	METHOD 3: Changing the links of the nodes
-Up till now we were only swapping the data of the nodes, But we will now actually swap the entire node by changing the links.  
+*Up till now we were only swapping the data of the nodes, But we will now actually swap the entire node by changing the links.*  
 **Time Complexity: O(n)**  
 
 
@@ -380,8 +385,8 @@ Up till now we were only swapping the data of the nodes, But we will now actuall
 Given two lists sorted in increasing order, create and return a new list representing the intersection of the two lists.  
 The new list should be made with its own memory — the original lists should not be changed.  
 
-For example, let the first linked list be 1->2->3->4->6 and second linked list be 2->4->6->8,  
-then your function should create and return a third list as 2->4->6.  
+*For example, let the first linked list be 1->2->3->4->6 and second linked list be 2->4->6->8,*  
+*then your function should create and return a third list as 2->4->6.*  
 
 ######	Method 1: Iterative
 This solution is structurally very similar to the above, but it avoids using a dummy node,  
@@ -400,19 +405,19 @@ If you are trying to build up a list at its tail, either the dummy node or the s
 ####	problem-16: Delete alternate nodes of a Linked List 
 *******************
 Given a Singly Linked List, starting from the second node delete all alternate nodes of it.  
-For example, if the given linked list is 1->2->3->4->5 then your function should convert it to 1->3->5,  
-and if the given linked list is 1->2->3->4 then convert it to 1->3.  
+*For example, if the given linked list is 1->2->3->4->5 then your function should convert it to 1->3->5,*  
+*and if the given linked list is 1->2->3->4 then convert it to 1->3.*  
 
-######	Method 1: Iterative; Time complexity: O(n)
+######	Method 1: Iterative; *Time complexity: O(n)*
 	
-######	Method 2: Recursive; Time complexity: O(n)
+######	Method 2: Recursive; *Time complexity: O(n)*
 
 *******************	
 ####	problem-17: Alternating split of a given Singly Linked List
 *******************
 Write a function AlternatingSplit() that takes one list and divides up its nodes to make two smaller lists ‘a’ and ‘b’.  
 The sublists should be made from alternating elements in the original list.  
-So if the original list is 0->1->0->1->0->1 then one sublist should be 0->0->0 and the other should be 1->1->1.  
+*So if the original list is 0->1->0->1->0->1 then one sublist should be 0->0->0 and the other should be 1->1->1.*  
 
 ######	Method 1: Simple Iterative Solution
 Just keep on traversing the linked-list and keep on putting alternate elements into 2 different linked-lists.
@@ -430,14 +435,13 @@ By the time , the iteration finishes, you will have one 2 linked list one the or
 ####	problem-18: Merging two linked lists at alternate positions
 *******************
 Given 2 linked lists , merge them to a single linked-list such that each alternate node actually belongs to the same linked-list;  If second link list has extra nodes, print them as well.  
-Exam­ple:
-
-5 - -> 10 - -> 15 - -> 20 - ->25 - -> null
-3 - -> 6 - ->9 - -> 12 - ->15 - ->18-->21--> null
+Example:
+	*5 - -> 10 - -> 15 - -> 20 - ->25 - -> null* 
+	*3 - -> 6 - ->9 - -> 12 - ->15 - ->18-->21--> null*
 
 Output :
-5 - -> 3 - -> 10 - -> 6 - ->15 - -> 9 - -> 20 - -> 12 - -> 25 - ->15 - -> null
-Remaining List : 18-->21-->null
+	*5 - -> 3 - -> 10 - -> 6 - ->15 - -> 9 - -> 20 - -> 12 - -> 25 - ->15 - -> null*
+	*Remaining List : 18-->21-->null*
 
 
 
@@ -447,10 +451,10 @@ Remaining List : 18-->21-->null
 Given 2 linked lists already sorted individually,Now try to merge them to form a single sorted linked-list.
 Write a SortedMerge() function that takes two lists, each of which is sorted in increasing order, and merges the two together into one list which is in increasing order. SortedMerge() should return the new list. The new list should be made by splicing
 together the nodes of the first two lists.  
-For eg: lnkLst1= 1-->5-->8-->17-->25 and lnkLst2= -10-->2-->7-->13-->21-->30
-Then the final sorted list should be: -10-->1-->2-->5-->7-->8-->13-->17-->21-->25-->30
+	*For eg: lnkLst1= 1-->5-->8-->17-->25 and lnkLst2= -10-->2-->7-->13-->21-->30*
+	*Then the final sorted list should be: -10-->1-->2-->5-->7-->8-->13-->17-->21-->25-->30*
 
-There are many cases to deal with: either ‘a’ or ‘b’ may be empty, during processing either ‘a’ or ‘b’ may run out first, and finally there’s the problem of starting the result list empty, and building it up while going through ‘a’ and ‘b’.
+**There are many cases to deal with: either ‘a’ or ‘b’ may be empty, during processing either ‘a’ or ‘b’ may run out first, and finally there’s the problem of starting the result list empty, and building it up while going through ‘a’ and ‘b’.**
 
 ######	Method 1: Iterative (Time Complexity O(m+n) )
 	1. create a new node say result
@@ -464,11 +468,11 @@ There are many cases to deal with: either ‘a’ or ‘b’ may be empty, durin
 	
 	
 ######	Method 2: Recursive (Time Complexity O(m+n))
-	Base Case :
+	**Base Case :**
 	If List A gets fin­ished , return List B.  
 	
 	If List B gets fin­ished, return List A.  
-	Steps:  
+	**Steps: ** 
 	1. Cre­ate a result node and ini­tial­ize it as NULL
 	2. Check which node (List A or List B) has a smaller value.
 	3. Whichever is smaller, add it to the result node.
