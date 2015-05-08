@@ -148,16 +148,20 @@ This solution requires modifications to basic linked list data structure.
 -Have a visited flag with each node. 
 -Traverse the first linked list and keep marking visited nodes. 
 -Now traverse second linked list, 
--If you see a visited node again then there is an intersection point, return the intersecting node. 
+-If you see a visited node again then there is an intersection point, return the intersecting node.  
+
 -*This solution works in O(m+n) but requires additional information with each node.* 
 
 
 
 ######	Method 3. Hash based data structure
 A variation of the above solution that doesn’t require modification to basic data structure can be implemented using hash. 
--Traverse the first linked list and store the addresses of visited nodes in a hash. 
--Now traverse the second linked list and if you see an address that already exists in hash then return the intersecting node.
--*Time complexity is O(m+n) but requires additional space equal O(N) or O(M).*
+
+-Traverse the first linked list and store the addresses of visited nodes in a hash.  
+
+-Now traverse the second linked list and if you see an address that already exists in hash then return the intersecting node.  
+
+-*Time complexity is O(m+n) but requires additional space equal O(N) or O(M).*  
 
 
 
@@ -183,23 +187,27 @@ A variation of the above solution that doesn’t require modification to basic d
 
 
 ######	Method 6. Reverse the first list and make equations
-1) Let X be the length of the first linked list until intersection point.
+1. Let X be the length of the first linked list until intersection point.
    Let Y be the length of the second linked list until the intersection point.
    Let Z be the length of the linked list from intersection point to End of
    the linked list including the intersection node.
-   We Have
-           `X + Z = C1;`
-           `Y + Z = C2;`
-2) Reverse first linked list.
-3) Traverse Second linked list. Let C3 be the length of second list - 1. 
-     Now we have
-        `X + Y = C3`
-     We have 3 linear equations. By solving them, we get
-       `X = (C1 + C3 – C2)/2;`
-       `Y = (C2 + C3 – C1)/2;`
-       `Z = (C1 + C2 – C3)/2;`
+   We Have  
+   	`X + Z = C1;`  
+   	`Y + Z = C2;`
+2. Reverse first linked list.
+3. Traverse Second linked list. Let C3 be the length of second list - 1.  
+   Now we have  
+
+        	`X + Y = C3`  
+        
+     We have 3 linear equations. By solving them, we get  
+     
+       	`X = (C1 + C3 – C2)/2;`  
+       	`Y = (C2 + C3 – C1)/2;`  
+       	`Z = (C1 + C2 – C3)/2;`  
+       	
       *WE GOT THE INTERSECTION POINT.*
-4)  Reverse first linked list.
+4.  Reverse first linked list.
 *Advantage: No Comparison of pointers.*
 *Disadvantage : Modifying linked list(Reversing list).*
 
