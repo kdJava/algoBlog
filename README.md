@@ -2,13 +2,13 @@
 This repo conntains some basic data structures and algorithmic questions for practice; All the questions with the solutions can be found posted on my blog;
 
 *******************
-	problem-1: Find the 'k'th node from end of linkedlist;
+####	problem-1: Find the 'k'th node from end of linkedlist;
 *******************
 	
 
 
 *******************
-	problem-2: Given only a pointer to a node to be deleted in a singly linked list, how do you delete it?
+####	problem-2: Given only a pointer to a node to be deleted in a singly linked list, how do you delete it?
 *******************
 A simple solution is to traverse the linked list until you find the node you want to delete. 
 But this solution requires pointer to the head node which contradicts the problem statement.
@@ -20,7 +20,7 @@ To make this solution work we can mark the end node as a dummy node.(No other op
 
 
 *******************
-	problem-3: Write a function to print the middle of a given linked list
+####	problem-3: Write a function to print the middle of a given linked list
 *******************
 Method 1: Traverse the whole linked list and count the no. of nodes. Now traverse the list again till count/2 and return the node at count/2.  
 Method 2:Traverse linked list using two pointers. Move one pointer by one and other pointer by two. 
@@ -29,7 +29,7 @@ When the fast pointer reaches end slow pointer will reach middle of the linked l
 
 
 *******************
-	problem-4: Write a function that counts the number of times a given item occurs in a Linked List
+####	problem-4: Write a function that counts the number of times a given item occurs in a Linked List
 *******************
 Here is a solution:  
 
@@ -44,7 +44,7 @@ Algorithm:
  
  
 *******************
-	problem-5: Write a function to reverse a linked list
+####	problem-5: Write a function to reverse a linked list
 *******************
 1. Iterative Method
 Iterate trough the linked list. In loop, change next to prev, prev to current and current to next.
@@ -62,7 +62,7 @@ understanding of how to use recursion to solve problems.
 
 
 *******************
-	problem-6: Write a function to detect loop in a linked list
+####	problem-6: Write a function to detect loop in a linked list
 *******************
 Following are different ways of doing this:  
 
@@ -123,7 +123,7 @@ This algorithm is based on Floyd‘s algorithm. It is more efficient (24-36% fas
 
 
 *******************
-	problem-7: Write a function to get the intersection point of two Linked Lists.
+####	problem-7: Write a function to get the intersection point of two Linked Lists.
 *******************
 There are two singly linked lists in a system. By some programming error the end node of one of the linked list got linked into the second list, forming a inverted Y shaped list. Write a program to get the point where two linked list merge.
 
@@ -212,7 +212,7 @@ Time complexity of this method is O(m+n) and used Auxiliary space is O(1)
 
 
 *******************
-	problem-8: Function to check if a singly linked list is palindrome
+####	problem-8: Function to check if a singly linked list is palindrome
 *******************
 Given a singly linked list of characters, write a function that returns true if the given list is palindrome, else false.
 
@@ -253,7 +253,7 @@ We advance the head pointer in previous call, to refer to next node in the list.
 However, the trick in identifying double pointer. Passing single pointer is as good as pass-by-value, and we will pass the same pointer again and again. We need to pass the address of head pointer for reflecting the changes in parent recursive calls.
   
 *******************
-	problem-9: Given a linked list which is sorted, how will you insert in sorted way;
+####	problem-9: Given a linked list which is sorted, how will you insert in sorted way;
 *******************
 Algorithm:  
 Let input linked list is sorted in increasing order.  
@@ -270,7 +270,7 @@ Let input linked list is sorted in increasing order.
 
 
 *******************
-	problem-10: Remove duplicates from a sorted linked list.
+####	problem-10: Remove duplicates from a sorted linked list.
 *******************
 Write a removeDuplicates() function which takes a list sorted linked list and deletes any duplicate nodes from the list.  
 The list should only be traversed once.  
@@ -286,7 +286,7 @@ then removeDuplicates() should convert the list to 11->21->43->60.
 4. Before we delete a node, we need to store next pointer of the node
   
 *******************
-	problem-11: Remove duplicates from an unsorted linked list.
+####	problem-11: Remove duplicates from an unsorted linked list.
 *******************
 Write a removeDuplicates() function which takes a list and deletes any  
 duplicate nodes from the list. The list is not sorted.  
@@ -313,14 +313,14 @@ Time Complexity: O(n) on average (assuming that hash table access time is O(1) o
 Space Complexity: O(n)  
 
 *******************
-	problem-12: Print alternate nodes in a linked list from head to end and then from end to head;
+####	problem-12: Print alternate nodes in a linked list from head to end and then from end to head;
 *******************  
 Write a function that takes a linked list and then prints the alternate nodes from head to end and  
 then prints the alternating nodes from end to head.  
 For eg: if the linked list is: 1-->2-->3-->4-->5, then the function should print: 1 3 5 5 3 1  
   
 *******************
-	problem-13: Move last element to front of a given Linked List
+####	problem-13: Move last element to front of a given Linked List
 *******************
 Write a function that moves last element to front in a given Singly Linked List.  
 For example, if the given Linked List is 1->2->3->4->5, then the function should change the list to 5->1->2->3->4.
@@ -334,7 +334,7 @@ For example, if the given Linked List is 1->2->3->4->5, then the function should
 	iii) Make last as head ( *head_ref = last)  
 	
 *******************
-	problem-14: Pairwise swap elements of a given linked list
+####	problem-14: Pairwise swap elements of a given linked list
 *******************
 Given a singly linked list, write a function to swap elements pairwise.  
 For example, if the linked list is 1->2->3->4->5 then the function should change it to 2->1->4->3->5,  
@@ -354,8 +354,8 @@ Time Complexity: O(n)
 
 
 *******************
-	problem-15: Create a new linked list containing the elements(in sorted order) by having 
-	intersection from 2 already sorted lists;
+####	problem-15: Create a new linked list containing the elements(in sorted order) by having 
+####	intersection from 2 already sorted lists;
 *******************  
 Given two lists sorted in increasing order, create and return a new list representing the intersection of the two lists.  
 The new list should be made with its own memory — the original lists should not be changed.  
@@ -377,7 +377,7 @@ Time Complexity: O(m+n) where m and n are number of nodes in first and second li
   
   
 *******************
-	problem-16: Delete alternate nodes of a Linked List 
+####	problem-16: Delete alternate nodes of a Linked List 
 *******************
 Given a Singly Linked List, starting from the second node delete all alternate nodes of it.  
 For example, if the given linked list is 1->2->3->4->5 then your function should convert it to 1->3->5,  
@@ -388,7 +388,7 @@ and if the given linked list is 1->2->3->4 then convert it to 1->3.
 	Method 2: Recursive; Time complexity: O(n)
 
 *******************	
-	problem-17: Alternating split of a given Singly Linked List
+####	problem-17: Alternating split of a given Singly Linked List
 *******************
 Write a function AlternatingSplit() that takes one list and divides up its nodes to make two smaller lists ‘a’ and ‘b’.  
 The sublists should be made from alternating elements in the original list.  
@@ -407,7 +407,7 @@ By the time , the iteration finishes, you will have one 2 linked list one the or
 	    
 	    
 *******************	
-	problem-18: Merging two linked lists at alternate positions
+####	problem-18: Merging two linked lists at alternate positions
 *******************
 Given 2 linked lists , merge them to a single linked-list such that each alternate node actually belongs to the same linked-list;  If second link list has extra nodes, print them as well.  
 Exam­ple:
@@ -422,7 +422,7 @@ Remaining List : 18-->21-->null
 
 
 *******************	
-	problem-19: Merging two sorted linked lists
+####	problem-19: Merging two sorted linked lists
 *******************
 Given 2 linked lists already sorted individually,Now try to merge them to form a single sorted linked-list.
 Write a SortedMerge() function that takes two lists, each of which is sorted in increasing order, and merges the two together into one list which is in increasing order. SortedMerge() should return the new list. The new list should be made by splicing
