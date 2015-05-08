@@ -1,5 +1,5 @@
 # Algorithmist's Blog : Always learning !!!
-This repo conntains some basic data structures and algorithmic questions for practice; All the questions with the solutions can be found posted on my blog;
+>This repo conntains some basic data structures and algorithmic questions for practice; All the questions with the solutions can be found posted on my blog;
 
 *******************
 ####	problem-1: Find the 'k'th node from end of linkedlist;
@@ -23,7 +23,7 @@ To make this solution work we can mark the end node as a dummy node.(No other op
 ####	problem-3: Write a function to print the middle of a given linked list
 *******************
 **Method 1**: Traverse the whole linked list and count the no. of nodes Now traverse the list again till count/2 and return the node at count/2.  
-Method 2:Traverse linked list using two pointers. Move one pointer by one and other pointer by two. 
+**Method 2**:Traverse linked list using two pointers. Move one pointer by one and other pointer by two. 
 When the fast pointer reaches end slow pointer will reach middle of the linked list.  
 
 
@@ -33,23 +33,23 @@ When the fast pointer reaches end slow pointer will reach middle of the linked l
 *******************
 Here is a solution:  
 
-Algorithm:  
+	**Algorithm**:  
 
-1. Initialize count as zero.  
-2. Loop through each element of linked list:
-     If element data is equal to the key item then
+	1. Initialize count as zero.  
+	2. Loop through each element of linked list:
+     	If element data is equal to the key item then
         increment the count, continue the loop;
-3. Return count. 
+	3. Return count. 
  
  
  
 *******************
 ####	problem-5: Write a function to reverse a linked list
 *******************
-1. Iterative Method
+**1. Iterative Method**
 Iterate trough the linked list. In loop, change next to prev, prev to current and current to next.
 
-2. Recursive Method:
+**2. Recursive Method:**
 https://www.youtube.com/watch?v=KYH83T4q6Vs
 The cool thing about recursion in this problem is that it essentially allows us to iterate through 
 the linked list backwards – even though this is impossible in a singly linked list just by using the pointers 
