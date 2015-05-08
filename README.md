@@ -340,11 +340,117 @@ Given a singly linked list, write a function to swap elements pairwise.
 For example, if the linked list is 1->2->3->4->5 then the function should change it to 2->1->4->3->5,  
 and if the linked list is 1->2->3->4->5->6 then the function should change it to 2->1->4->3->6->5.  
 
-	METHOD 1 (Iterative) 
+	METHOD 1: Iterative
 Start from the head node and traverse the list. While traversing swap data of each node with its next node’s data.  
 Time complexity: O(n)  
 
-	METHOD 2 (Recursive)
-If there are 2 or more than 2 nodes in Linked List then swap the first two nodes and recursively call for rest of the list. 
-	    
+	METHOD 2: Recursive
+If there are 2 or more than 2 nodes in Linked List then swap the first two nodes and recursively call for rest of the list.  
+Time complexity: O(n)  
+ 
+	METHOD 3: Changing the links of the nodes
+Up till now we were only swapping the data of the nodes, But we will now actually swap the entire node by changing the links.  
+Time Complexity: O(n)  
+
+
+*******************
+	problem-15: Create a new linked list containing the elements(in sorted order) by having 
+	intersection from 2 already sorted lists;
+*******************  
+Given two lists sorted in increasing order, create and return a new list representing the intersection of the two lists.  
+The new list should be made with its own memory — the original lists should not be changed.  
+
+For example, let the first linked list be 1->2->3->4->6 and second linked list be 2->4->6->8,  
+then your function should create and return a third list as 2->4->6.  
+
+	Method 1: Iterative
+This solution is structurally very similar to the above, but it avoids using a dummy node,  
+Instead, it maintains a struct node** pointer, lastPtrRef, that always points to the last pointer of the result list.  
+This solves the same case that the dummy node did — dealing with the result list when it is empty.  
+If you are trying to build up a list at its tail, either the dummy node or the struct node** “reference” strategy can be used.  
+Time Complexity: O(m+n) where m and n are number of nodes in first and second linked lists respectively.  
+
+
+
+	Method 2: Recursive
+Time Complexity: O(m+n) where m and n are number of nodes in first and second linked lists respectively.  
   
+  
+*******************
+	problem-16: Delete alternate nodes of a Linked List 
+*******************
+Given a Singly Linked List, starting from the second node delete all alternate nodes of it.  
+For example, if the given linked list is 1->2->3->4->5 then your function should convert it to 1->3->5,  
+and if the given linked list is 1->2->3->4 then convert it to 1->3.  
+
+	Method 1: Iterative; Time complexity: O(n)
+	
+	Method 2: Recursive; Time complexity: O(n)
+
+*******************	
+	problem-17: Alternating split of a given Singly Linked List
+*******************
+Write a function AlternatingSplit() that takes one list and divides up its nodes to make two smaller lists ‘a’ and ‘b’.  
+The sublists should be made from alternating elements in the original list.  
+So if the original list is 0->1->0->1->0->1 then one sublist should be 0->0->0 and the other should be 1->1->1.  
+
+	Method 1: Simple Iterative Solution
+Just keep on traversing the linked-list and keep on putting alternate elements into 2 different linked-lists.
+By the time you will reach the end of the linked-list you would be done.!! ie; have 2 different linked-lists each containing alternate elements of the original linked-list;
+
+	Method 2: Simple Iteration Only, but space efficient, alters the original list
+While iterating the nodes of the linked-list , keep on removing the alternate nodes form the original linked-list and add them to the newer linked-list.
+By the time , the iteration finishes, you will have one 2 linked list one the original one and second the new one that you created, both containing the alternate elements of the original linked-list. 
+
+	Method 3: Recursive Approach, space efficient, But , alters the original list  
+	  
+	    
+	    
+*******************	
+	problem-18: Merging two linked lists at alternate positions
+*******************
+Given 2 linked lists , merge them to a single linked-list such that each alternate node actually belongs to the same linked-list;  If second link list has extra nodes, print them as well.  
+Exam­ple:
+
+5 - -> 10 - -> 15 - -> 20 - ->25 - -> null
+3 - -> 6 - ->9 - -> 12 - ->15 - ->18-->21--> null
+
+Output :
+5 - -> 3 - -> 10 - -> 6 - ->15 - -> 9 - -> 20 - -> 12 - -> 25 - ->15 - -> null
+Remaining List : 18-->21-->null
+
+
+
+*******************	
+	problem-19: Merging two sorted linked lists
+*******************
+Given 2 linked lists already sorted individually,Now try to merge them to form a single sorted linked-list.
+Write a SortedMerge() function that takes two lists, each of which is sorted in increasing order, and merges the two together into one list which is in increasing order. SortedMerge() should return the new list. The new list should be made by splicing
+together the nodes of the first two lists.  
+For eg: lnkLst1= 1-->5-->8-->17-->25 and lnkLst2= -10-->2-->7-->13-->21-->30
+Then the final sorted list should be: -10-->1-->2-->5-->7-->8-->13-->17-->21-->25-->30
+
+There are many cases to deal with: either ‘a’ or ‘b’ may be empty, during processing either ‘a’ or ‘b’ may run out first, and finally there’s the problem of starting the result list empty, and building it up while going through ‘a’ and ‘b’.
+---------------
+	Method 1: Iterative (Time Complexity O(m+n) )
+	1. create a new node say result
+	2. navigate through both the linked lists at the same time, starting from head
+	3. compare the first node values of both the linked lists
+	4. which ever is smaller, add it to the result node
+	5. move the head pointer of the linked list whose value was smaller
+	6. again compare the node values
+	7. keep doing until one list gets over
+	8. copy the rest of the nodes of unfinished list to the result 
+	
+---------------	
+	Method 2: Recursive (Time Complexity O(m+n))
+	Base Case :
+	If List A gets fin­ished , return List B.  
+	
+	If List B gets fin­ished, return List A.  
+	Steps:  
+	1. Cre­ate a result node and ini­tial­ize it as NULL
+	2. Check which node (List A or List B) has a smaller value.
+	3. Whichever is smaller, add it to the result node.
+	4. Make recur­sive call and add the return node as result.next
+
