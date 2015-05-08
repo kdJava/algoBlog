@@ -390,8 +390,45 @@ By the time you will reach the end of the linked-list you would be done.!! ie; h
 While iterating the nodes of the linked-list , keep on removing the alternate nodes form the original linked-list and add them to the newer linked-list.
 By the time , the iteration finishes, you will have one 2 linked list one the original one and second the new one that you created, both containing the alternate elements of the original linked-list. 
 
-	Method 3: Recursive Approach, space efficient, But , alters the original list
+	Method 3: Recursive Approach, space efficient, But , alters the original list  
+	  
+	    
+	    
+*******************	
+	problem-18: Merging two linked lists at alternate positions
+*******************
+Given 2 linked lists , merge them to a single linked-list such that each alternate node actually belongs to the same linked-list;  If second link list has extra nodes, print them as well.  
+Exam­ple:
 
+5 - -> 10 - -> 15 - -> 20 - ->25 - -> null
+3 - -> 6 - ->9 - -> 12 - ->15 - ->18-->21--> null
+
+Output :
+5 - -> 3 - -> 10 - -> 6 - ->15 - -> 9 - -> 20 - -> 12 - -> 25 - ->15 - -> null
+Remaining List : 18-->21-->null
+
+
+
+*******************	
+	problem-19: Merging two sorted linked lists
+*******************
+Given 2 linked lists already sorted individually,Now try to merge them to form a single sorted linked-list.
+Write a SortedMerge() function that takes two lists, each of which is sorted in increasing order, and merges the two together into one list which is in increasing order. SortedMerge() should return the new list. The new list should be made by splicing
+together the nodes of the first two lists.  
+For eg: lnkLst1= 1-->5-->8-->17-->25 and lnkLst2= -10-->2-->7-->13-->21-->30
+Then the final sorted list should be: -10-->1-->2-->5-->7-->8-->13-->17-->21-->25-->30
+
+There are many cases to deal with: either ‘a’ or ‘b’ may be empty, during processing either ‘a’ or ‘b’ may run out first, and finally there’s the problem of starting the result list empty, and building it up while going through ‘a’ and ‘b’.
+
+	Method1: Iterative (Time Complexity O(m+n) )
+	1. create a new node say result
+	2. navigate through both the linked lists at the same time, starting from head
+	3. compare the first node values of both the linked lists
+	4. which ever is smaller, add it to the result node
+	5. move the head pointer of the linked list whose value was smaller
+	6. again compare the node values
+	7. keep doing until one list gets over
+	8. copy the rest of the nodes of unfinished list to the result 
 
 
 
