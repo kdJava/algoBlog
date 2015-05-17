@@ -419,7 +419,7 @@ For eg: lnkLst1= 1-->5-->8-->17-->25 and lnkLst2= -10-->2-->7-->13-->21-->30
 Then the final sorted list should be: -10-->1-->2-->5-->7-->8-->13-->17-->21-->25-->30
 
 There are many cases to deal with: either ‘a’ or ‘b’ may be empty, during processing either ‘a’ or ‘b’ may run out first, and finally there’s the problem of starting the result list empty, and building it up while going through ‘a’ and ‘b’.
----------------
+
 	Method 1: Iterative (Time Complexity O(m+n) )
 	1. create a new node say result
 	2. navigate through both the linked lists at the same time, starting from head
@@ -430,23 +430,101 @@ There are many cases to deal with: either ‘a’ or ‘b’ may be empty, durin
 	7. keep doing until one list gets over
 	8. copy the rest of the nodes of unfinished list to the result 
 	
----------------	
+
 	Method 2: Recursive (Time Complexity O(m+n))
 	Base Case :
 	If List A gets fin­ished , return List B.  
 	
 	If List B gets fin­ished, return List A.  
 	Steps:  
-	1. Cre­ate a result node and ini­tial­ize it as NULL
+	1. Create a result node and ini­tial­ize it as NULL
 	2. Check which node (List A or List B) has a smaller value.
 	3. Whichever is smaller, add it to the result node.
 	4. Make recur­sive call and add the return node as result.next
 
-
-
-
-
+*******************	
+	problem-20: Swap Every Kth Node in a LinkedList
+*******************
+Given a linked list, swap every kth node in that. If at the end of the list remain­ing nodes are less than k, leave them untouched.  
   
+  
+	Input: A linked list, A num­ber k.
+	Example:  
+	Input : ->1->2->3->4->5->6->7->8->9->10 , K = 4
+	Output: ->4->2->3->1->8->6->7->5->9->10
+
+Approach:
+	Take 3 Point­ers, ptrOne, ptrTwo and ptrTwo_prev.
+	ptrOne and ptrTwo_prev points at head node.
+	ptrTwo points at next node of ptrTwo_prev.
+	Move the ptrTwo and ptrTwo_prev k-2 times, since we need one pointer each at both ends for swap­ping so move point­ers only k-2 times.
+	Cre­ate another pointer , New­Head and point it to ptrTwo.next.
+	Now we have ptrOne at head and ptrTwo at kth posi­tion, swap them with the help of ptrTwo_prev.
+	This func­tion will returns the head.
+	Now make a recur­sive call with newHead: ptrOne.next = reverseNodes(newHead, k);
+
+
+*******************	
+	problem-21: Swap Every Kth Node in a LinkedList with (N-k)th node;
+	ie; Swap kth node from head, with the kth node from end(in case both are same, do nothing)
+*******************
+ Given a Linked List and a number k, Swap Kth Node from the front with the Kth Node from the End
+Example:
+->10->20->30->40->50->60->70
+
+Swapping 1 Node from the Front and from the End
+->70->20->30->40->50->60->10
+
+Swapping 2 Node from the Front and from the End
+->70->60->30->40->50->20->10 
+
+Swapping 3 Node from the Front and from the End
+->70->60->50->40->30->20->10 
+
+k = 4, Nodes are same from front and at the end, no swapping
+->70->60->50->40->30->20->10 
+
+Swapping 5 Node from the Front and from the End
+->70->60->30->40->50->20->10
+
+Swapping 6 Node from the Front and from the End
+->70->20->30->40->50->60->10
+
+Swapping 7 Node from the Front and from the End
+->10->20->30->40->50->60->70
+
+INVALID NUMBER, No Swapping, k>length of list
+->10->20->30->40->50->60->70
+
+Approach:
+	Find the length of the list, say it is ‘Len’.
+	If k>Len, No Swapping.
+	If kth node from the front and the end are same (2*k-1=Len), No Swapping.
+	If above two steps are not true then we need swap­ping of the elements.
+	Take a pointer left, move it by k nodes. Keep track of node prior to left( call it as left_prev, we need it for the swapping).
+	Set left_prev = null if k=1.
+	Take a pointer right, move it by len-k+1 nodes(it will be the kth node from the end). Keep track of node prior to left( call it as right_prev, we need it for the swapping).
+	Set right_prev = null if k=Len.
+	If left_prev!=NULL means left node is not the first node, so make left_prev will point to right
+	If right_prev!=NULL means right node is not the first node, so right_prev will point to left node.
+	Now just swap the next and right.next to com­plete the swapping.
+
+*NOTE:We need to change the head of list if k =1 (head = right) or k = len (head = left).
+
+*******************	
+	problem-22: Delete X Nodes After Y Nodes In a Linked List
+*******************
+Given a Linked List and x and y. Delete x number of nodes after y nodes from the start.
+Example:
+->10->20->30->40->50->60->70->80->90->100->110->120
+Deleted 4 Nodes after 5 Nodes
+->10->20->30->40->50->100->110->120
+
+Approach:
+	We need two pointers.
+	One pointer at one node prior to the nodes to be deleted. ( Move it by y start­ing from the head).
+	Another pointer at one node after to the nodes to be deleted. (Move it by x start­ing from the y, as per pre­vi­ous step).
+	Then Just link these two nodes.
 
     
     
