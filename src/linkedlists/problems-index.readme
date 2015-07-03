@@ -526,8 +526,136 @@ Approach:
 	Another pointer at one node after to the nodes to be deleted. (Move it by x start­ing from the y, as per pre­vi­ous step).
 	Then Just link these two nodes.
 
-    
-    
+
+*******************	
+	problem-23: Add 2 numbers represented by the linked lists, in reverse order; 
+	The result should be represented by the linked list(reverse order)
+*******************
+Objective: Two numbers represented by a linked list where each node con­tains single digit. 
+The dig­its are stored in REVERSE order, means head is point­ing to the first digit of the number.
+
+Input: Two numbers represented by Linked Lists
+
+Out­put: Addition of two numbers rep­re­sented by a Linked List.
+
+Example:
+First Number in REVERSE order: 5957
+Second Number in REVERSE order : 59
+Addition in REVERSE order : 0967
+Actual Result in FORWARD ORDER : 9670
+
+Approach:
+1) Take a vari­able int carry =0.
+2) Initialize Node newHead = null; and Node curr = null.
+3) newHead will be the starting node of our result linked list and curr node will the reference to the current node on which we are working in our result linked list.
+4) Navigate Both the lists simultaneously taking one node at a time.
+5) Add the data of nodes and carry , say you call this as total.
+6) Check if total >=10, if yes put carry =1 and total=total-10.
+7) create a new node with value total, say you call it as Node ‘n’.
+8) check if newHead is null, if yes then and assign ‘n’ to newHead. Now our starting node of result linked list is fixed.
+9) if newHead is not null then add ‘n’ to the result linked list with the help of newHead and curr.
+10) Now repeat steps 4 to 9 till any one of the list gets over( considering both the list has different length, if both list has the same length then both lists gets over at the same time, you will not need step 11).
+11) Now navigate the list ( whichever is remain­ing) and add it to the result list. (take care of the carry, see Exam­ple). You can avoid this step by making sure that both the list has the same length adding 0 at the end of the shorter list , to see the similar implementation click here.
+12) At the End check the carry, if it is not 0, create a new node with value 1 and add it to the result linked list.    
+  
+  
+  
+*******************	
+	problem-24: Add 2 numbers represented by the linked lists, in forward order; 
+	The result should be represented by the linked list(forward order)
+*******************
+
+Objective: Two num­bers represented by a linked list, where each node contains single digit. The digits are stored in Forward order, means head is pointing to the last digit of the number.
+Input: Two num­bers represented by Linked Lists
+
+Output: Addition of two numbers represented by a Linked List.
+
+Example:
+First Number : 1007
+Second Number : 93
+Addition : 1100  
+
+Approach:
+1) Get the length of both the lists.
+2) If lengths are not equal, make them equal by adding nodes with value 0 in front of shorter linked list.
+3) Create a global variable carry=0.
+4) Create a newHead = null;
+5) newHead will be the starting node of our result linked list and curr node will the reference to the current node on which we are working in our result linked list.
+6) Now using recursion travel in both the list till the end.
+7) So now nodes are stores in a stack
+8) Now while coming back, each node will pop out from the stack in reverse order
+9) Take node data from both the lists add them along with carry.
+10) if sum is >=10 , then make carry as 1 and create a new node with sum-10
+11) Else just create a new Node with sum.
+12) Add the newly created node to the result linked list with the help of newHead.
 
 
+*******************	
+	problem-25:Given a Sorted Singly Linked List Array, Convert it into a Balanced Binary search Tree
+*******************
+Objective: You have been given a sorted singly List, you need to con­vert it into balanced binary search tree.
 
+Why balanced binary tree is important:
+You can also create first node as root and insert all other nodes to the right of the tree because List is in increasing order but this constructed tree won’t be balanced tree, 
+it wil be skwed tree and to perform operations on this tree will be O(n) not O(logn).
+
+Input: An sorted Singly Linked List
+Out­put: Bal­anced Binary Tree
+
+Approach:
+1) Say mid is the middle node in the linked list.
+2) Recursively con­struct left sub­tree from start to mid-1
+3) Make the middle node as root and assign the left sub­tree to it.
+4) Recursively construct right subtree from mid+1 to end.
+5) Assign the right sub­tree to root.
+
+
+*******************	
+	problem-26:In a Binary Tree, Create Linked Lists of all the nodes at each depth
+*******************
+Objective: Given a Binary tree create Linked Lists of all the nodes at each depth , say if the tree has height k then create k linked lists.
+Input: A binary tree
+Output: K linked lists if the height of tree is k. Each linked list will have all the nodes of each level.
+
+Approach:
+Recursion:
+1) Create a ArrayList of Linked List Nodes.
+2) Do the level order traversal using queue(Breadth First Search). Click here to know about how to level order traversal.
+3) For getting all the nodes at each level, before you take out a node from queue, store the size of the queue in a variable, say you call it as levelNodes.
+4) Now while levelNodes>0, take out the nodes and print it and add their children into the queue. add these to a linked list
+5) After this while loop put a line break and create a new linked list
+
+
+*******************	
+	problem-27:Identical Linked Lists
+*******************
+Two Linked Lists are identical when they have same data and arrangement of data is also same. 
+For example Linked lists a (1->2->3) and b(1->2->3) are identical.
+Write a function to check if the given two linked lists are identical.
+
+Method 1 (Iterative)
+To identify if two lists are identical, we need to traverse both lists simultaneously, and while traversing we need to compare data.
+
+Method 2 (Recursive)
+Recursive solution code is much cleaner than the iterative code. 
+You probably wouldn’t want to use the recursive version for production code however, 
+because it will use stack space which is proportional to the length of the lists
+
+Time Complexity: O(n) for both iterative and recursive versions. n is the length of the smaller list among a and b.
+
+
+*******************	
+	problem-28:Reverse a Linked List in groups of given size
+*******************
+Given a linked list, write a function to reverse every k nodes (where k is an input to the function).
+
+Example:
+Inputs:  1->2->3->4->5->6->7->8->NULL and k = 3 
+Output:  3->2->1->6->5->4->8->7->NULL. 
+
+Inputs:   1->2->3->4->5->6->7->80->NULL and k = 5
+Output:  5->4->3->2->1->8->7->6->NULL. 
+Algorithm: reverse(head, k)
+1) Reverse the first sub-list of size k. While reversing keep track of the next node and previous node. Let the pointer to the next node be next and pointer to the previous node be prev. See this post for reversing a linked list.
+2) head->next = reverse(next, k) /* Recursively call for rest of the list and link the two sub-lists */
+3) return prev /* prev becomes the new head of the list */
