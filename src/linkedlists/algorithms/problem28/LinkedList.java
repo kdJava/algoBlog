@@ -170,9 +170,19 @@ public class LinkedList<Item> {
 		return prevNode;
 	}
 
-	public void reverse(LinkedList<Item> linkedList, int groupSize) {
+	public LinkedList<Item> reverse(LinkedList<Item> linkedList, int groupSize) {
 		Node newHead = reverseInGroups(linkedList.first, groupSize);
+		return getListFromHead(newHead);
+	}
 
+	private LinkedList<Item> getListFromHead(Node head) {
+		LinkedList<Item> newList = new LinkedList<>();
+		Node currentNode = head;
+		while (currentNode != null) {
+			newList.addItem(currentNode.item);
+			currentNode = currentNode.next;
+		}
+		return newList;
 	}
 
 	/**
@@ -193,7 +203,7 @@ public class LinkedList<Item> {
 		linkedList.addItem(90);
 		linkedList.addItem(100);
 		System.out.println("LinkedList:" + linkedList);
-
+		System.out.println(linkedList.reverse(linkedList, 3));
 	}
 
 }
