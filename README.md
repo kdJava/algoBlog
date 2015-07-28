@@ -501,7 +501,7 @@ If at the end of the list remain­ing nodes are less than k, leave them untouche
 
   
 ******************* 
-  problem-21: Swap Every Kth Node in a LinkedList with (N-k)th node;
+####  problem-21: Swap Every Kth Node in a LinkedList with (N-k)th node;
   ie; Swap kth node from head, with the kth node from end(in case both are same, do nothing)
 *******************
  Given a Linked List and a number k, Swap Kth Node from the front with the Kth Node from the End
@@ -548,7 +548,7 @@ Approach:
 *NOTE:We need to change the head of list if k =1 (head = right) or k = len (head = left).
 
 ******************* 
-  problem-22: Delete X Nodes After Y Nodes In a Linked List
+####  problem-22: Delete X Nodes After Y Nodes In a Linked List
 *******************
 Given a Linked List and x and y. Delete x number of nodes after y nodes from the start.
 Example:
@@ -564,7 +564,7 @@ Approach:
 
 
 ******************* 
-  problem-23: Add 2 numbers represented by the linked lists, in reverse order; 
+####  problem-23: Add 2 numbers represented by the linked lists, in reverse order; 
   The result should be represented by the linked list(reverse order)
 *******************
 Objective: Two numbers represented by a linked list where each node con­tains single digit. 
@@ -597,7 +597,7 @@ Approach:
   
   
 ******************* 
-  problem-24: Add 2 numbers represented by the linked lists, in forward order; 
+####  problem-24: Add 2 numbers represented by the linked lists, in forward order; 
   The result should be represented by the linked list(forward order)
 *******************
 
@@ -627,7 +627,7 @@ Approach:
 
 
 ******************* 
-  problem-25:Given a Sorted Singly Linked List Array, Convert it into a Balanced Binary search Tree
+####  problem-25:Given a Sorted Singly Linked List Array, Convert it into a Balanced Binary search Tree
 *******************
 Objective: You have been given a sorted singly List, you need to con­vert it into balanced binary search tree.
 
@@ -647,7 +647,7 @@ Approach:
 
 
 ******************* 
-  problem-26:In a Binary Tree, Create Linked Lists of all the nodes at each depth
+####  problem-26:In a Binary Tree, Create Linked Lists of all the nodes at each depth
 *******************
 Objective: Given a Binary tree create Linked Lists of all the nodes at each depth , say if the tree has height k then create k linked lists.
 Input: A binary tree
@@ -663,7 +663,7 @@ Recursion:
 
 
 ******************* 
-  problem-27:Identical Linked Lists
+####  problem-27:Identical Linked Lists
 *******************
 Two Linked Lists are identical when they have same data and arrangement of data is also same. 
 For example Linked lists a (1->2->3) and b(1->2->3) are identical.
@@ -681,7 +681,7 @@ Time Complexity: O(n) for both iterative and recursive versions. n is the length
 
 
 ******************* 
-  problem-28:Reverse a Linked List in groups of given size
+####  problem-28:Reverse a Linked List in groups of given size
 *******************
 Given a linked list, write a function to reverse every k nodes (where k is an input to the function).
 
@@ -697,7 +697,7 @@ Algorithm: reverse(head, k)
 3) return prev /* prev becomes the new head of the list */
 
 ******************* 
-  problem-29: Sort a linked list of 0s, 1s and 2s
+####  problem-29: Sort a linked list of 0s, 1s and 2s
 *******************
 Given a linked list of 0s, 1s and 2s, sort it.
 
@@ -706,7 +706,7 @@ Following steps can be used to sort the given linked list.
 2) Traverse the list again, fill the first n1 nodes with 0, then n2 nodes with 1 and finally n3 nodes with 2.
 
 ******************* 
-  problem-30: Reverse alternate K nodes in a Singly Linked List
+####  problem-30: Reverse alternate K nodes in a Singly Linked List
 *******************
 Given a linked list, write a function to reverse every alternate k nodes (where k is an input to the function) in an efficient way. 
 Give the complexity of your algorithm.
