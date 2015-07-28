@@ -1,4 +1,5 @@
 # Algorithmist's Blog : Always learning !!!
+Lets See..!!	<<http://kdjava.github.io/algoBlog>>
 >This repo conntains some basic data structures and algorithmic questions for practice; All the questions with the solutions can be found posted on my blog;
 
 *******************
@@ -490,14 +491,14 @@ If at the end of the list remain­ing nodes are less than k, leave them untouche
   *Output: ->4->2->3->1->8->6->7->5->9->10*
 
 **Approach:**
-  i) Take 3 Point­ers, ptrOne, ptrTwo and ptrTwo_prev.
-  ii) ptrOne and ptrTwo_prev points at head node.
-  iii) ptrTwo points at next node of ptrTwo_prev.
-  iv) Move the ptrTwo and ptrTwo_prev k-2 times, since we need one pointer each at both ends for swap­ping so move point­ers only k-2 times.
-  v) Cre­ate another pointer , New­Head and point it to ptrTwo.next.
-  vi) Now we have ptrOne at head and ptrTwo at kth posi­tion, swap them with the help of ptrTwo_prev.
-  vii) This func­tion will returns the head.
-  viii) Now make a recur­sive call with newHead: ptrOne.next = reverseNodes(newHead, k);  
+  1. Take 3 Point­ers, ptrOne, ptrTwo and ptrTwo_prev.
+  2. ptrOne and ptrTwo_prev points at head node.
+  3. ptrTwo points at next node of ptrTwo_prev.
+  4. Move the ptrTwo and ptrTwo_prev k-2 times, since we need one pointer each at both ends for swap­ping so move point­ers only k-2 times.
+  5. Cre­ate another pointer , New­Head and point it to ptrTwo.next.
+  6. Now we have ptrOne at head and ptrTwo at kth posi­tion, swap them with the help of ptrTwo_prev.
+  7. This func­tion will returns the head.
+  8. Now make a recursive call with newHead: ptrOne.next = reverseNodes(newHead, k);  
 
   
 ******************* 
@@ -506,93 +507,92 @@ If at the end of the list remain­ing nodes are less than k, leave them untouche
 *******************
  Given a Linked List and a number k, Swap Kth Node from the front with the Kth Node from the End
 Example:
-->10->20->30->40->50->60->70
+*->10->20->30->40->50->60->70*
 
-Swapping 1 Node from the Front and from the End
-->70->20->30->40->50->60->10
+*Swapping 1 Node from the Front and from the End*
+*->70->20->30->40->50->60->10*
 
-Swapping 2 Node from the Front and from the End
-->70->60->30->40->50->20->10 
+*Swapping 2 Node from the Front and from the End*
+*->70->60->30->40->50->20->10*
 
-Swapping 3 Node from the Front and from the End
-->70->60->50->40->30->20->10 
+*Swapping 3 Node from the Front and from the End*
+*->70->60->50->40->30->20->10*
 
-k = 4, Nodes are same from front and at the end, no swapping
-->70->60->50->40->30->20->10 
+*k = 4, Nodes are same from front and at the end, no swapping*
+*->70->60->50->40->30->20->10*
 
-Swapping 5 Node from the Front and from the End
-->70->60->30->40->50->20->10
+*Swapping 5 Node from the Front and from the End*
+*->70->60->30->40->50->20->10*
 
-Swapping 6 Node from the Front and from the End
-->70->20->30->40->50->60->10
+*Swapping 6 Node from the Front and from the End*
+*->70->20->30->40->50->60->10*
 
-Swapping 7 Node from the Front and from the End
-->10->20->30->40->50->60->70
+*Swapping 7 Node from the Front and from the End*
+*->10->20->30->40->50->60->70*
 
-INVALID NUMBER, No Swapping, k>length of list
-->10->20->30->40->50->60->70
+*INVALID NUMBER, No Swapping, k>length of list*
+*->10->20->30->40->50->60->70*
 
-Approach:
-  Find the length of the list, say it is ‘Len’.
-  If k>Len, No Swapping.
-  If kth node from the front and the end are same (2*k-1=Len), No Swapping.
-  If above two steps are not true then we need swap­ping of the elements.
-  Take a pointer left, move it by k nodes. Keep track of node prior to left( call it as left_prev, we need it for the swapping).
-  Set left_prev = null if k=1.
-  Take a pointer right, move it by len-k+1 nodes(it will be the kth node from the end). Keep track of node prior to left( call it as right_prev, we need it for the swapping).
-  Set right_prev = null if k=Len.
-  If left_prev!=NULL means left node is not the first node, so make left_prev will point to right
-  If right_prev!=NULL means right node is not the first node, so right_prev will point to left node.
-  Now just swap the next and right.next to com­plete the swapping.
+**Approach:**
+  1. Find the length of the list, say it is ‘Len’.  
+  2. If k>Len, No Swapping.   
+  3. If kth node from the front and the end are same (2*k-1=Len), No Swapping.   
+  4. If above two steps are not true then we need swap­ping of the elements.   
+  5. Take a pointer left, move it by k nodes. Keep track of node prior to left( call it as left_prev, we need it for the swapping).   
+  6. Set left_prev = null if k=1.   
+  7. Take a pointer right, move it by len-k+1 nodes(it will be the kth node from the end). Keep track of node prior to left( call it as right_prev, we need it for the swapping).   
+  8. Set right_prev = null if k=Len.   
+  9. If left_prev!=NULL means left node is not the first node, so make left_prev will point to right   
+  10. If right_prev!=NULL means right node is not the first node, so right_prev will point to left node.   
+  11. Now just swap the next and right.next to com­plete the swapping.    
 
-*NOTE:We need to change the head of list if k =1 (head = right) or k = len (head = left).
+*NOTE:We need to change the head of list if k =1 (head = right) or k = len (head = left).*
 
 ******************* 
 ####  problem-22: Delete X Nodes After Y Nodes In a Linked List
 *******************
 Given a Linked List and x and y. Delete x number of nodes after y nodes from the start.
-Example:
-->10->20->30->40->50->60->70->80->90->100->110->120
-Deleted 4 Nodes after 5 Nodes
-->10->20->30->40->50->100->110->120
+*Example:*
+*->10->20->30->40->50->60->70->80->90->100->110->120*
+*Deleted 4 Nodes after 5 Nodes*
+*->10->20->30->40->50->100->110->120*
 
-Approach:
-  We need two pointers.
-  One pointer at one node prior to the nodes to be deleted. ( Move it by y start­ing from the head).
-  Another pointer at one node after to the nodes to be deleted. (Move it by x start­ing from the y, as per pre­vi­ous step).
-  Then Just link these two nodes.
+**Approach:**
+  1.  need two pointers.
+  2. One pointer at one node prior to the nodes to be deleted. ( Move it by y start­ing from the head).
+  3. Another pointer at one node after to the nodes to be deleted. (Move it by x start­ing from the y, as per pre­vi­ous step).
+  4. Then Just link these two nodes.
 
 
 ******************* 
 ####  problem-23: Add 2 numbers represented by the linked lists, in reverse order; 
   The result should be represented by the linked list(reverse order)
 *******************
-Objective: Two numbers represented by a linked list where each node con­tains single digit. 
-The dig­its are stored in REVERSE order, means head is point­ing to the first digit of the number.
+*Objective: Two numbers represented by a linked list where each node con­tains single digit.* 
+*The dig­its are stored in REVERSE order, means head is point­ing to the first digit of the number.*
 
-Input: Two numbers represented by Linked Lists
+`Input: Two numbers represented by Linked Lists`
+`Out­put: Addition of two numbers rep­re­sented by a Linked List.`
 
-Out­put: Addition of two numbers rep­re­sented by a Linked List.
+*Example:*
+*First Number in REVERSE order: 5957*
+*Second Number in REVERSE order : 59*
+*Addition in REVERSE order : 0967*
+*Actual Result in FORWARD ORDER : 9670*
 
-Example:
-First Number in REVERSE order: 5957
-Second Number in REVERSE order : 59
-Addition in REVERSE order : 0967
-Actual Result in FORWARD ORDER : 9670
-
-Approach:
-1) Take a vari­able int carry =0.
-2) Initialize Node newHead = null; and Node curr = null.
-3) newHead will be the starting node of our result linked list and curr node will the reference to the current node on which we are working in our result linked list.
-4) Navigate Both the lists simultaneously taking one node at a time.
-5) Add the data of nodes and carry , say you call this as total.
-6) Check if total >=10, if yes put carry =1 and total=total-10.
-7) create a new node with value total, say you call it as Node ‘n’.
-8) check if newHead is null, if yes then and assign ‘n’ to newHead. Now our starting node of result linked list is fixed.
-9) if newHead is not null then add ‘n’ to the result linked list with the help of newHead and curr.
-10) Now repeat steps 4 to 9 till any one of the list gets over( considering both the list has different length, if both list has the same length then both lists gets over at the same time, you will not need step 11).
-11) Now navigate the list ( whichever is remain­ing) and add it to the result list. (take care of the carry, see Exam­ple). You can avoid this step by making sure that both the list has the same length adding 0 at the end of the shorter list , to see the similar implementation click here.
-12) At the End check the carry, if it is not 0, create a new node with value 1 and add it to the result linked list.    
+**Approach:**
+1. Take a vari­able int carry =0.     
+2. Initialize Node newHead = null; and Node curr = null.    
+3. newHead will be the starting node of our result linked list and curr node will the reference to the current node on which we are working in our result linked list.    
+4. Navigate Both the lists simultaneously taking one node at a time.    
+5. Add the data of nodes and carry , say you call this as total.    
+6. Check if total >=10, if yes put carry =1 and total=total-10.    
+7. create a new node with value total, say you call it as Node ‘n’.   
+8. check if newHead is null, if yes then and assign ‘n’ to newHead. Now our starting node of result linked list is fixed.   
+9. if newHead is not null then add ‘n’ to the result linked list with the help of newHead and curr.   
+10. Now repeat steps 4 to 9 till any one of the list gets over( considering both the list has different length, if both list has the same length then both lists gets over at the same time, you will not need step 11).   
+11. Now navigate the list ( whichever is remain­ing) and add it to the result list. (take care of the carry, see Exam­ple). You can avoid this step by making sure that both the list has the same length adding 0 at the end of the shorter list , to see the similar implementation click here.    
+12. At the End check the carry, if it is not 0, create a new node with value 1 and add it to the result linked list.       
   
   
   
@@ -601,109 +601,109 @@ Approach:
   The result should be represented by the linked list(forward order)
 *******************
 
-Objective: Two num­bers represented by a linked list, where each node contains single digit. The digits are stored in Forward order, means head is pointing to the last digit of the number.
-Input: Two num­bers represented by Linked Lists
+*Objective: Two num­bers represented by a linked list, where each node contains single digit. The digits are stored in* *Forward order, means head is pointing to the last digit of the number.*
 
-Output: Addition of two numbers represented by a Linked List.
+`Input: Two num­bers represented by Linked Lists`
+`Output: Addition of two numbers represented by a Linked List.`
 
-Example:
-First Number : 1007
-Second Number : 93
-Addition : 1100  
+*Example:*
+*First Number : 1007*
+*Second Number : 93*
+*Addition : 1100*  
 
-Approach:
-1) Get the length of both the lists.
-2) If lengths are not equal, make them equal by adding nodes with value 0 in front of shorter linked list.
-3) Create a global variable carry=0.
-4) Create a newHead = null;
-5) newHead will be the starting node of our result linked list and curr node will the reference to the current node on which we are working in our result linked list.
-6) Now using recursion travel in both the list till the end.
-7) So now nodes are stores in a stack
-8) Now while coming back, each node will pop out from the stack in reverse order
-9) Take node data from both the lists add them along with carry.
-10) if sum is >=10 , then make carry as 1 and create a new node with sum-10
-11) Else just create a new Node with sum.
-12) Add the newly created node to the result linked list with the help of newHead.
+**Approach:**
+1. Get the length of both the lists.   
+2. If lengths are not equal, make them equal by adding nodes with value 0 in front of shorter linked list.    
+3. Create a global variable carry=0.   
+4. Create a newHead = null;    
+5. newHead will be the starting node of our result linked list and curr node will the reference to the current node on which we are working in our result linked list.    
+6. Now using recursion travel in both the list till the end.    
+7. So now nodes are stores in a stack    
+8. Now while coming back, each node will pop out from the stack in reverse order    
+9. Take node data from both the lists add them along with carry.    
+10. if sum is >=10 , then make carry as 1 and create a new node with sum-10   
+11. Else just create a new Node with sum.   
+12. Add the newly created node to the result linked list with the help of newHead.    
 
 
 ******************* 
 ####  problem-25:Given a Sorted Singly Linked List Array, Convert it into a Balanced Binary search Tree
 *******************
-Objective: You have been given a sorted singly List, you need to con­vert it into balanced binary search tree.
+*Objective: You have been given a sorted singly List, you need to con­vert it into balanced binary search tree.*
 
-Why balanced binary tree is important:
-You can also create first node as root and insert all other nodes to the right of the tree because List is in increasing order but this constructed tree won’t be balanced tree, 
-it wil be skwed tree and to perform operations on this tree will be O(n) not O(logn).
+	Why balanced binary tree is important:
+	You can also create first node as root and insert all other nodes to the right of the tree because List is in 			increasing order but this constructed tree won’t be balanced tree, it wil be skwed tree and to perform 			operations on this tree will be O(n) not O(logn).
 
-Input: An sorted Singly Linked List
-Out­put: Bal­anced Binary Tree
+`Input: An sorted Singly Linked List`
+`Out­put: Bal­anced Binary Tree`
 
-Approach:
-1) Say mid is the middle node in the linked list.
-2) Recursively con­struct left sub­tree from start to mid-1
-3) Make the middle node as root and assign the left sub­tree to it.
-4) Recursively construct right subtree from mid+1 to end.
-5) Assign the right sub­tree to root.
+**Approach:**
+1. Say mid is the middle node in the linked list.   
+2. Recursively con­struct left sub­tree from start to mid-1   
+3. Make the middle node as root and assign the left sub­tree to it.   
+4. Recursively construct right subtree from mid+1 to end.   
+5. Assign the right sub­tree to root.   
 
 
 ******************* 
 ####  problem-26:In a Binary Tree, Create Linked Lists of all the nodes at each depth
 *******************
-Objective: Given a Binary tree create Linked Lists of all the nodes at each depth , say if the tree has height k then create k linked lists.
-Input: A binary tree
-Output: K linked lists if the height of tree is k. Each linked list will have all the nodes of each level.
+*Objective: Given a Binary tree create Linked Lists of all the nodes at each depth , say if the tree has height k then create k linked lists.*
+`Input: A binary tree`
+`Output: K linked lists if the height of tree is k. Each linked list will have all the nodes of each level.`
 
-Approach:
-Recursion:
-1) Create a ArrayList of Linked List Nodes.
-2) Do the level order traversal using queue(Breadth First Search). Click here to know about how to level order traversal.
-3) For getting all the nodes at each level, before you take out a node from queue, store the size of the queue in a variable, say you call it as levelNodes.
-4) Now while levelNodes>0, take out the nodes and print it and add their children into the queue. add these to a linked list
-5) After this while loop put a line break and create a new linked list
+**Approach:**
+	--Recursion:
+1. Create a ArrayList of Linked List Nodes.   
+2. Do the level order traversal using queue(Breadth First Search). Click here to know about how to level order traversal.   
+3. For getting all the nodes at each level, before you take out a node from queue, store the size of the queue in a variable, say you call it as levelNodes.   
+4. Now while levelNodes>0, take out the nodes and print it and add their children into the queue. add these to a linked list   
+5. After this while loop put a line break and create a new linked list   
 
 
 ******************* 
 ####  problem-27:Identical Linked Lists
 *******************
 Two Linked Lists are identical when they have same data and arrangement of data is also same. 
-For example Linked lists a (1->2->3) and b(1->2->3) are identical.
+*For example Linked lists a (1->2->3) and b(1->2->3) are identical.*
 Write a function to check if the given two linked lists are identical.
 
-Method 1 (Iterative)
+*Method 1 (Iterative)*
 To identify if two lists are identical, we need to traverse both lists simultaneously, and while traversing we need to compare data.
 
-Method 2 (Recursive)
+*Method 2 (Recursive)*
 Recursive solution code is much cleaner than the iterative code. 
 You probably wouldn’t want to use the recursive version for production code however, 
 because it will use stack space which is proportional to the length of the lists
 
-Time Complexity: O(n) for both iterative and recursive versions. n is the length of the smaller list among a and b.
+*Time Complexity: O(n) for both iterative and recursive versions. n is the length of the smaller list among a and b.*
 
 
 ******************* 
 ####  problem-28:Reverse a Linked List in groups of given size
 *******************
-Given a linked list, write a function to reverse every k nodes (where k is an input to the function).
+*Given a linked list, write a function to reverse every k nodes (where k is an input to the function).*
 
-Example:
-Inputs:  1->2->3->4->5->6->7->8->NULL and k = 3 
-Output:  3->2->1->6->5->4->8->7->NULL. 
+`Example:`
+`Inputs:  1->2->3->4->5->6->7->8->NULL and k = 3 `
+`Output:  3->2->1->6->5->4->8->7->NULL. `
 
-Inputs:   1->2->3->4->5->6->7->80->NULL and k = 5
-Output:  5->4->3->2->1->8->7->6->NULL. 
-Algorithm: reverse(head, k)
-1) Reverse the first sub-list of size k. While reversing keep track of the next node and previous node. Let the pointer to the next node be next and pointer to the previous node be prev. See this post for reversing a linked list.
-2) head->next = reverse(next, k) /* Recursively call for rest of the list and link the two sub-lists */
-3) return prev /* prev becomes the new head of the list */
+`Inputs:   1->2->3->4->5->6->7->80->NULL and k = 5`
+`Output:  5->4->3->2->1->8->7->6->NULL.` 
+
+**Algorithm: reverse(head, k)**
+1. Reverse the first sub-list of size k. While reversing keep track of the next node and previous node. Let the pointer to the next node be next and pointer to the previous node be prev. See this post for reversing a linked list.   
+2. head->next = reverse(next, k) /* Recursively call for rest of the list and link the two sub-lists */   
+3. return prev /* prev becomes the new head of the list */   
 
 ******************* 
 ####  problem-29: Sort a linked list of 0s, 1s and 2s
 *******************
 Given a linked list of 0s, 1s and 2s, sort it.
 
-Following steps can be used to sort the given linked list.
-1) Traverse the list and count the number of 0s, 1s and 2s. Let the counts be n1, n2 and n3 respectively.
-2) Traverse the list again, fill the first n1 nodes with 0, then n2 nodes with 1 and finally n3 nodes with 2.
+**Following steps can be used to sort the given linked list.**
+1. Traverse the list and count the number of 0s, 1s and 2s. Let the counts be n1, n2 and n3 respectively.   
+2. Traverse the list again, fill the first n1 nodes with 0, then n2 nodes with 1 and finally n3 nodes with 2.   
 
 ******************* 
 ####  problem-30: Reverse alternate K nodes in a Singly Linked List
@@ -711,30 +711,30 @@ Following steps can be used to sort the given linked list.
 Given a linked list, write a function to reverse every alternate k nodes (where k is an input to the function) in an efficient way. 
 Give the complexity of your algorithm.
 
-Example:
-Inputs:   1->2->3->4->5->6->7->8->9->NULL and k = 3
-Output:   3->2->1->4->5->6->9->8->7->NULL. 
+`Example:`
+`Inputs:   1->2->3->4->5->6->7->8->9->NULL and k = 3`
+`Output:   3->2->1->4->5->6->9->8->7->NULL.` 
 
-Method 1 (Process 2k nodes and recursively call for rest of the list) 
+**Method 1 (Process 2k nodes and recursively call for rest of the list)** 
 This method is basically an extension of the method discussed in this post.
 
-kAltReverse(struct node *head, int k) Time Complexity: O(n)
-  1)  Reverse first k nodes.
-  2)  In the modified list head points to the kth node.  So change next 
-       of head to (k+1)th node
-  3)  Move the current pointer to skip next k nodes.
-  4)  Call the kAltReverse() recursively for rest of the n - 2k nodes.
-  5)  Return new head of the list.
+**kAltReverse(struct node *head, int k) Time Complexity: O(n)**
+  1.  Reverse first k nodes.   
+  2.  In the modified list head points to the kth node.  So change next  
+       of head to (k+1)th node   
+  3.  Move the current pointer to skip next k nodes.   
+  4.  Call the kAltReverse() recursively for rest of the n - 2k nodes.   
+  5.  Return new head of the list.   
   
-Method 2 (Process k nodes and recursively call for rest of the list) 
+**Method 2 (Process k nodes and recursively call for rest of the list) **
 The method 1 reverses the first k node and then moves the pointer to k nodes ahead. 
 So method 1 uses two while loops and processes 2k nodes in one recursive call.
 This method processes only k nodes in a recursive call. 
 It uses a third bool parameter b which decides whether to reverse the k elements or simply move the pointer.
 
-_kAltReverse(struct node *head, int k, bool b) Time Complexity: O(n)
-  1)  If b is true, then reverse first k nodes.
-  2)  If b is false, then move the pointer k nodes ahead.
-  3)  Call the kAltReverse() recursively for rest of the n - k nodes and link 
-       rest of the modified list with end of first k nodes. 
-  4)  Return new head of the list.  
+**_kAltReverse(struct node *head, int k, bool b) Time Complexity: O(n)**
+  1.  If b is true, then reverse first k nodes.   
+  2.  If b is false, then move the pointer k nodes ahead.   
+  3.  Call the kAltReverse() recursively for rest of the n - k nodes and link
+       rest of the modified list with end of first k nodes.     
+  4.  Return new head of the list.      
