@@ -51,10 +51,11 @@ public class LinkedList<Item extends Comparable<Item>> {
 		}
 		int counter = 0;
 		for (Node i = first; i != null; i = i.next) {
-			if (counter == (size - 1))
+			if (counter == (size - 1)) {
 				result += i.item + "]";
-			else
+			} else {
 				result += i.item + "-->";
+			}
 			counter++;
 		}
 		return result;
@@ -104,7 +105,7 @@ public class LinkedList<Item extends Comparable<Item>> {
 		Node newNode = new Node(); // Create new node to insert
 		newNode.item = item; // Set newNode's element to item to to be inserted
 		newNode.next = null; // Set the newNode's next to NULL, as it is to be
-								// inserted at end
+		// inserted at end
 
 		Node currentNode = first;
 		// Lets get the lastNode;
@@ -117,14 +118,11 @@ public class LinkedList<Item extends Comparable<Item>> {
 	}
 
 	/**
-	 * problem10
-	 * Remove duplicates from a sorted linked list
-	 * Algorithm:
-	 * 1. Traverse the list from the head (or start) node. While traversing.
-	 * 2. Compare each node with its next node.
-	 * 3. If data of next node is same as current node then delete the next
-	 * node.
-	 * 4. Before we delete a node, we need to store next pointer of the node
+	 * problem10 Remove duplicates from a sorted linked list Algorithm: 1.
+	 * Traverse the list from the head (or start) node. While traversing. 2.
+	 * Compare each node with its next node. 3. If data of next node is same as
+	 * current node then delete the next node. 4. Before we delete a node, we
+	 * need to store next pointer of the node
 	 * 
 	 * @createdOn 23-Apr-2015 12:07:47 am
 	 * @author ketandikshit
@@ -140,8 +138,9 @@ public class LinkedList<Item extends Comparable<Item>> {
 		Node nextOfNextNode;
 
 		/* do nothing if the list is empty */
-		if (currentNode == null)
+		if (currentNode == null) {
 			return;
+		}
 
 		/* Traverse the list till last node */
 		while (currentNode.next != null) {
@@ -185,10 +184,8 @@ public class LinkedList<Item extends Comparable<Item>> {
 		linkedList.addAtEnd(100);
 
 		System.out.println(linkedList);
-
 		linkedList.removeDuplicatesFromSortedLinkedList(linkedList);
 		System.out.println(linkedList);
 
 	}
-
 }

@@ -10,10 +10,8 @@ package linkedlists.algorithms.problem2;
 import java.util.Random;
 
 /**
- * @author ketandikshit
- *         30-Mar-2015 11:47:07 pm
- *         GeekyAlgoJava/linkedlists.algorithms/Problem2.java
- *         2015
+ * @author ketandikshit 30-Mar-2015 11:47:07 pm
+ *         GeekyAlgoJava/linkedlists.algorithms/Problem2.java 2015
  */
 public class LinkedList<Item> {
 
@@ -34,10 +32,11 @@ public class LinkedList<Item> {
 		}
 		int counter = 0;
 		for (Node i = first; i != null; i = i.next) {
-			if (counter == (size - 1))
+			if (counter == (size - 1)) {
 				result += i.item + "]";
-			else
+			} else {
 				result += i.item + "-->";
+			}
 			counter++;
 		}
 		return result;
@@ -68,13 +67,11 @@ public class LinkedList<Item> {
 	 *            item to be added as first element in linked-list
 	 */
 	public void addAtHead(Item item) {
-		Node newNode = new Node(); // Create new node to insert
-		newNode.item = item; // Set newNode's element to item to to be inserted
-
-		Node oldFirst = first; // save the oldFirst Node in temp variable
-		first = newNode; // Set the first to newNode
-		first.next = oldFirst; // Set the next of first to oldFirst
-		size++; // increment the size
+		Node newHead = new Node(); // Create new node to insert
+		newHead.item = item; // Set newNode's element to item to to be inserted
+		newHead.next = first; // Set newHeads next to oldHead
+		first = newHead; // Set newHead as current Head
+		size++; // increment currentSize
 	}
 
 	/**
@@ -87,7 +84,7 @@ public class LinkedList<Item> {
 		Node newNode = new Node(); // Create new node to insert
 		newNode.item = item; // Set newNode's element to item to to be inserted
 		newNode.next = null; // Set the newNode's next to NULL, as it is to be
-								// inserted at end
+		// inserted at end
 
 		Node currentNode = first;
 		// Lets get the lastNode;
@@ -100,9 +97,7 @@ public class LinkedList<Item> {
 	}
 
 	/**
-	 * Problem2
-	 * 30-Mar-2015 11:30:35 pm
-	 * ketandikshit
+	 * Problem2 30-Mar-2015 11:30:35 pm ketandikshit
 	 * 
 	 * @param linkedList
 	 *            linked-list instance
@@ -125,9 +120,7 @@ public class LinkedList<Item> {
 	}
 
 	/**
-	 * SetupHelper for Problem2
-	 * 03-Apr-2015 12:15:28 pm
-	 * ketandikshit
+	 * SetupHelper for Problem2 03-Apr-2015 12:15:28 pm ketandikshit
 	 * 
 	 * @param linkedList
 	 *            linkedlistInstance
@@ -149,8 +142,7 @@ public class LinkedList<Item> {
 	}
 
 	/**
-	 * 30-Mar-2015 11:47:07 pm
-	 * ketandikshit
+	 * 30-Mar-2015 11:47:07 pm ketandikshit
 	 * 
 	 * @param args
 	 */
@@ -171,7 +163,6 @@ public class LinkedList<Item> {
 		int itemDeleted = linkedList.deleteThePointingNode();
 		System.out.println("After Deletion:" + linkedList);
 		System.out.println("Deleted Element from List-->" + itemDeleted);
-
 	}
 
 }

@@ -7,7 +7,11 @@
  */
 package binary_search_tree.datastructure;
 
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.NoSuchElementException;
 
 import linkedlists.datastructure.queue.Queue;
@@ -50,6 +54,33 @@ public class BST<Key extends Comparable<Key>, Value> implements Iterable<Key> {
 			this.value = value;
 			this.N = N;
 		}
+
+		/**
+		 * @createdOn 20-Sep-2015 1:25:47 pm
+		 * @author ketandikshit
+		 * @see java.lang.Object#toString()
+		 */
+		@Override
+		public String toString() {
+			return "[key:" + key + "][val:" + value + "][left:" + left.key
+					+ "][right:" + right.key + "]";
+		}
+	}
+
+	/**
+	 * @createdOn 20-Sep-2015 1:34:50 pm
+	 * @author ketandikshit
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		StringBuffer sbuf = new StringBuffer();
+		Iterator<Key> iter = this.iterator();
+		while (iter.hasNext()) {
+			sbuf.append(iter.next() + "-->");
+		}
+		sbuf.append("null");
+		return sbuf.toString();
 	}
 
 	/**
@@ -92,8 +123,7 @@ public class BST<Key extends Comparable<Key>, Value> implements Iterable<Key> {
 
 		if (cmp < 0) {
 			return get(node.left, key);
-		}
-		if (cmp > 0) {
+		} else if (cmp > 0) {
 			return get(node.right, key);
 		} else {
 			return node.value;
@@ -121,10 +151,10 @@ public class BST<Key extends Comparable<Key>, Value> implements Iterable<Key> {
 		int cmp = key.compareTo(node.key);
 		if (cmp < 0) {
 			node.left = put(node.left, key, val);
-		}
-		if (cmp > 0) {
+		} else if (cmp > 0) {
 			node.right = put(node.right, key, val);
 		} else {
+			node.key = key;
 			node.value = val;
 		}
 		node.N = size(node.left) + size(node.right) + 1;
@@ -281,7 +311,7 @@ public class BST<Key extends Comparable<Key>, Value> implements Iterable<Key> {
 		if (node.right == null) {
 			return node.left;
 		}
-		node.right = deleteMin(node.right);
+		node.right = deleteMax(node.right);
 		node.N = size(node.left) + size(node.right) + 1;
 		return node;
 	}
@@ -315,6 +345,51 @@ public class BST<Key extends Comparable<Key>, Value> implements Iterable<Key> {
 		return node;
 	}
 
+	List<Key> inOrderSequence = new ArrayList<>();
+
+	private List<Key> inOrder(Node root) {
+		if (root != null) {
+			inOrder(root.left);
+			inOrderSequence.add(root.key);
+			inOrder(root.right);
+		}
+		return inOrderSequence;
+	}
+
+	List<Key> postOrderSequence = new ArrayList<>();
+
+	private List<Key> postOrder(Node root) {
+		if (root != null) {
+			postOrder(root.left);
+			postOrder(root.right);
+			postOrderSequence.add(root.key);
+		}
+		return postOrderSequence;
+	}
+
+	List<Key> preOrderSequence = new ArrayList<>();
+
+	private List<Key> preOrder(Node root) {
+		if (root != null) {
+			preOrderSequence.add(root.key);
+			preOrder(root.left);
+			preOrder(root.right);
+		}
+		return preOrderSequence;
+	}
+
+	public List<Key> inOrder() {
+		return inOrder(root);
+	}
+
+	public List<Key> postOrder() {
+		return postOrder(root);
+	}
+
+	public List<Key> preOrder() {
+		return preOrder(root);
+	}
+
 	public void printInOrder(String ascOrDesc) {
 		if (ascOrDesc.equalsIgnoreCase("DESC")) {
 			printDesc(root);
@@ -342,10 +417,10 @@ public class BST<Key extends Comparable<Key>, Value> implements Iterable<Key> {
 	}
 
 	public Iterable<Key> keys() {
-		return keys(min(), max());
+		return keysRange(min(), max());
 	}
 
-	public Iterable<Key> keys(Key lo, Key hi) {
+	public Iterable<Key> keysRange(Key lo, Key hi) {
 		Queue<Key> queue = new Queue<Key>();
 		keys(root, queue, lo, hi);
 		return queue;
@@ -360,11 +435,17 @@ public class BST<Key extends Comparable<Key>, Value> implements Iterable<Key> {
 		if (cmplo < 0) {
 			keys(node.left, queue, lo, hi);
 		}
-		if (cmplo <= 0 && cmphi >= 0) {
+		if ((cmplo <= 0) && (cmphi >= 0)) {
 			queue.enqueue(node.key);
 		}
 		if (cmphi > 0) {
 			keys(node.right, queue, lo, hi);
+		}
+	}
+
+	public void putAllKeys(Map<Key, Value> keys) {
+		for (Entry<Key, Value> entry : keys.entrySet()) {
+			put(entry.getKey(), entry.getValue());
 		}
 	}
 
@@ -398,8 +479,9 @@ public class BST<Key extends Comparable<Key>, Value> implements Iterable<Key> {
 
 		@Override
 		public Key next() {
-			if (!hasNext())
+			if (!hasNext()) {
 				throw new NoSuchElementException();
+			}
 			Node x = stack.pop();
 			pushLeft(x.right);
 			return x.key;
@@ -413,5 +495,4 @@ public class BST<Key extends Comparable<Key>, Value> implements Iterable<Key> {
 		}
 
 	}
-
 }

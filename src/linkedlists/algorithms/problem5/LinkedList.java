@@ -7,12 +7,9 @@
  */
 package linkedlists.algorithms.problem5;
 
-
 /**
- * @author ketandikshit
- *         03-Apr-2015 12:57:31 pm
- *         GeekyAlgoJava/linkedlists.algorithms.problem5/LinkedList.java
- *         2015
+ * @author ketandikshit 03-Apr-2015 12:57:31 pm
+ *         GeekyAlgoJava/linkedlists.algorithms.problem5/LinkedList.java 2015
  */
 public class LinkedList<Item> {
 
@@ -33,10 +30,11 @@ public class LinkedList<Item> {
 		}
 		int counter = 0;
 		for (Node i = first; i != null; i = i.next) {
-			if (counter == (size - 1))
+			if (counter == (size - 1)) {
 				result += i.item + "]";
-			else
+			} else {
 				result += i.item + "-->";
+			}
 			counter++;
 		}
 		return result;
@@ -86,7 +84,7 @@ public class LinkedList<Item> {
 		Node newNode = new Node(); // Create new node to insert
 		newNode.item = item; // Set newNode's element to item to to be inserted
 		newNode.next = null; // Set the newNode's next to NULL, as it is to be
-								// inserted at end
+		// inserted at end
 
 		Node currentNode = first;
 		// Lets get the lastNode;
@@ -99,9 +97,7 @@ public class LinkedList<Item> {
 	}
 
 	/**
-	 * Reverses the linkedlist iteratively
-	 * 03-Apr-2015 12:58:57 pm
-	 * ketandikshit
+	 * Reverses the linkedlist iteratively 03-Apr-2015 12:58:57 pm ketandikshit
 	 */
 	public void reverseLinkedListIterative() {
 		Node prev = null;
@@ -117,49 +113,31 @@ public class LinkedList<Item> {
 		first = prev;
 	}
 
-	public void reverseLinkedListRecursively(Node restNode) {
+	public void reverseLinkedListRecursively(Node currNode) {
 
 		// check for empty list
-		if (restNode == null)
+		if (currNode == null) {
 			return;
+		}
 
 		/*
-		 * if we are at the TAIL node:
-		 * recursive base case:
+		 * if we are at the TAIL node: recursive base case:
 		 */
-		if (restNode.next == null) {
+		if (currNode.next == null) {
 			// set HEAD to current TAIL since we are reversing list
-			first = restNode;
-			System.out
-					.println("***********Recursive Stack Created; Now unwinding the stack !!");
+			first = currNode;
+			System.out.println("First-->" + first.item);
 			return; // since this is the base case
 
 		}
 
-		System.out.println(this + " has First-->" + first.item + " restNode-->"
-				+ restNode.item);
-
-		reverseLinkedListRecursively(restNode.next);
-		Node temp = restNode.next;
-		System.out.println(this + " Before: has First-->" + first.item
-				+ " restNode-->" + restNode.item + " has restNode.Next-->"
-				+ restNode.next.item);
-		temp.next = restNode;
-		restNode.next = null; // set "old" next pointer to NULL
-		System.out
-				.println(this
-						+ " After:has First-->"
-						+ first.item
-						+ " restNode-->"
-						+ restNode.item
-						+ " has restNode.Next-->"
-						+ ((restNode.next != null)
-								? restNode.next.item
-								: restNode.next));
+		reverseLinkedListRecursively(currNode.next);
+		currNode.next.next = currNode;
+		currNode.next = null; // set "old" next pointer to NULL
 	}
+
 	/**
-	 * 03-Apr-2015 12:57:31 pm
-	 * ketandikshit
+	 * 03-Apr-2015 12:57:31 pm ketandikshit
 	 * 
 	 * @param args
 	 */

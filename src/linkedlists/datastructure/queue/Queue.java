@@ -11,10 +11,8 @@ import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 
 /**
- * @author ketandikshit
- *         27-Mar-2015 10:27:08 am
- *         GeekyAlgoJava/linkedlists.datastructure/Queue.java
- *         2015
+ * @author ketandikshit 27-Mar-2015 10:27:08 am
+ *         GeekyAlgoJava/linkedlists.datastructure/Queue.java 2015
  */
 public class Queue<Item> implements Iterable<Item> {
 
@@ -29,9 +27,7 @@ public class Queue<Item> implements Iterable<Item> {
 
 	/**
 	 * 
-	 * 27-Mar-2015 27-Mar-2015
-	 * ketandikshit
-	 * toString
+	 * 27-Mar-2015 27-Mar-2015 ketandikshit toString
 	 * 
 	 * @see @see java.lang.Object#toString()
 	 */
@@ -40,7 +36,7 @@ public class Queue<Item> implements Iterable<Item> {
 		String result = "QUEUE--> [";
 		int counter = 0;
 		for (Node i = first; i != null; i = i.next) {
-			if (counter == size - 1) {
+			if (counter == (size - 1)) {
 				result += i.item + "]";
 			} else {
 				result += i.item + ", ";
@@ -48,6 +44,29 @@ public class Queue<Item> implements Iterable<Item> {
 			counter++;
 		}
 		return result;
+	}
+
+	/**
+	 * @createdOn 20-Sep-2015 2:19:11 pm
+	 * @author ketandikshit
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (obj instanceof Queue<?>) {
+			Queue<Item> testQueue = (Queue<Item>) obj;
+			Iterator<Item> thisIter = this.iterator();
+			Iterator<Item> testQueueIter = testQueue.iterator();
+			for (; thisIter.hasNext() && testQueue.iterator().hasNext();) {
+				if (thisIter.next().equals(testQueueIter.next())) {
+					continue;
+				} else {
+					return false;
+				}
+			}
+			return true;
+		}
+		return false;
 	}
 
 	public boolean isEmpty() {
@@ -72,10 +91,11 @@ public class Queue<Item> implements Iterable<Item> {
 		last.item = item;
 		last.next = null;
 
-		if (isEmpty())
+		if (isEmpty()) {
 			first = last;
-		else
+		} else {
 			oldLast.next = last;
+		}
 
 		size++;
 	}
@@ -84,8 +104,9 @@ public class Queue<Item> implements Iterable<Item> {
 		Item item = first.item;
 		first = first.next;
 
-		if (isEmpty())
+		if (isEmpty()) {
 			last = null;
+		}
 
 		size--;
 		return item;
@@ -93,9 +114,7 @@ public class Queue<Item> implements Iterable<Item> {
 
 	/**
 	 * 
-	 * 27-Mar-2015 27-Mar-2015
-	 * ketandikshit
-	 * iterator
+	 * 27-Mar-2015 27-Mar-2015 ketandikshit iterator
 	 * 
 	 * @see @see java.lang.Iterable#iterator()
 	 */
@@ -109,9 +128,7 @@ public class Queue<Item> implements Iterable<Item> {
 
 		/**
 		 * 
-		 * 27-Mar-2015 27-Mar-2015
-		 * ketandikshit
-		 * hasNext
+		 * 27-Mar-2015 27-Mar-2015 ketandikshit hasNext
 		 * 
 		 * @see @see java.util.Iterator#hasNext()
 		 */
@@ -122,9 +139,7 @@ public class Queue<Item> implements Iterable<Item> {
 
 		/**
 		 * 
-		 * 27-Mar-2015 27-Mar-2015
-		 * ketandikshit
-		 * next
+		 * 27-Mar-2015 27-Mar-2015 ketandikshit next
 		 * 
 		 * @see @see java.util.Iterator#next()
 		 */
@@ -137,9 +152,7 @@ public class Queue<Item> implements Iterable<Item> {
 
 		/**
 		 * 
-		 * 27-Mar-2015 27-Mar-2015
-		 * ketandikshit
-		 * remove
+		 * 27-Mar-2015 27-Mar-2015 ketandikshit remove
 		 * 
 		 * @see @see java.util.Iterator#remove()
 		 */

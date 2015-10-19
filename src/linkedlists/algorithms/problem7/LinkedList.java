@@ -37,10 +37,11 @@ public class LinkedList<Item> {
 		}
 		int counter = 0;
 		for (Node i = first; i != null; i = i.next) {
-			if (counter == (size - 1))
+			if (counter == (size - 1)) {
 				result += i.item + "]";
-			else
+			} else {
 				result += i.item + "-->";
+			}
 			counter++;
 		}
 		return result;
@@ -90,7 +91,7 @@ public class LinkedList<Item> {
 		Node newNode = new Node(); // Create new node to insert
 		newNode.item = item; // Set newNode's element to item to to be inserted
 		newNode.next = null; // Set the newNode's next to NULL, as it is to be
-								// inserted at end
+		// inserted at end
 
 		Node currentNode = first;
 		// Lets get the lastNode;
@@ -133,11 +134,10 @@ public class LinkedList<Item> {
 		System.out
 				.println("***************Intersection-Created*****************");
 	}
+
 	/**
-	 * Detects the intersection between 2 linkedlists
-	 * Time complexity of this method is O(m+n) and
-	 * used Auxiliary space is O(1)
-	 * ketandikshit
+	 * Detects the intersection between 2 linkedlists Time complexity of this
+	 * method is O(m+n) and used Auxiliary space is O(1) ketandikshit
 	 * 
 	 * @param linkedlist1
 	 *            first linkedlist
@@ -162,22 +162,20 @@ public class LinkedList<Item> {
 		}
 
 		// check if both have same last nodes
-		if (currentNode1 == currentNode2)
+		if (currentNode1 == currentNode2) {
 			return true;
-		else
+		} else {
 			return false;
+		}
 
 	}
 
 	/**
-	 * problem-7
-	 * Find intersection/merge point of 2 linkedlists
-	 * Outer loop will be for each node of the 1st list and inner loop will be
-	 * for 2nd list.
-	 * In the inner loop, check if any of nodes of 2nd list is same as the
-	 * current node of first linked list.
-	 * Time complexity of this method will be O(m*n) where m and n are the
-	 * number of nodes in two lists.
+	 * problem-7 Find intersection/merge point of 2 linkedlists Outer loop will
+	 * be for each node of the 1st list and inner loop will be for 2nd list. In
+	 * the inner loop, check if any of nodes of 2nd list is same as the current
+	 * node of first linked list. Time complexity of this method will be O(m*n)
+	 * where m and n are the number of nodes in two lists.
 	 * 
 	 * @param linkedlist1
 	 *            first linked-list
@@ -209,16 +207,13 @@ public class LinkedList<Item> {
 	}
 
 	/**
-	 * problem-7
-	 * Find intersection/merge point of 2 linkedlists
-	 * This solution requires modifications to basic linked list data structure.
-	 * Have a visited flag with each node.
-	 * Traverse the first linked list and keep marking visited nodes.
-	 * Now traverse second linked list,
-	 * If you see a visited node again then there is an intersection point,
-	 * return the intersecting node.
-	 * This solution works in O(m+n) but requires additional information with
-	 * each node.
+	 * problem-7 Find intersection/merge point of 2 linkedlists This solution
+	 * requires modifications to basic linked list data structure. Have a
+	 * visited flag with each node. Traverse the first linked list and keep
+	 * marking visited nodes. Now traverse second linked list, If you see a
+	 * visited node again then there is an intersection point, return the
+	 * intersecting node. This solution works in O(m+n) but requires additional
+	 * information with each node.
 	 * 
 	 * @param linkedlist1
 	 *            first linked-list
@@ -251,24 +246,19 @@ public class LinkedList<Item> {
 	}
 
 	/**
-	 * problem-7
-	 * Find intersection/merge point of 2 linkedlists
-	 * A variation of the above solution that doesn’t require modification to
-	 * basic data structure can be implemented using hash.
-	 * Traverse the first linked list and store the addresses of visited nodes
-	 * in a hash.
-	 * Now traverse the second linked list and if you see an address that
-	 * already exists in hash then return the intersecting node.
-	 * Time complexity is O(m+n) but requires additional space equal O(N) or
-	 * O(M) depending upon which linkedlist is put into hash based data set for
-	 * reference;
-	 * For address part we will use hashCodes of objects in Java
-	 * hashCode is equivalent to address pointers in C++
-	 * Not actually!! HashCode in java by default(if not overridden) is
-	 * calculated based on the memory address of the Object(under
-	 * consideration) on heap memory
-	 * Though there to hashcode calculation in java, but memeory address
-	 * is the uniquely identified base parameter.
+	 * problem-7 Find intersection/merge point of 2 linkedlists A variation of
+	 * the above solution that doesn’t require modification to basic data
+	 * structure can be implemented using hash. Traverse the first linked list
+	 * and store the addresses of visited nodes in a hash. Now traverse the
+	 * second linked list and if you see an address that already exists in hash
+	 * then return the intersecting node. Time complexity is O(m+n) but requires
+	 * additional space equal O(N) or O(M) depending upon which linkedlist is
+	 * put into hash based data set for reference; For address part we will use
+	 * hashCodes of objects in Java hashCode is equivalent to address pointers
+	 * in C++ Not actually!! HashCode in java by default(if not overridden) is
+	 * calculated based on the memory address of the Object(under consideration)
+	 * on heap memory Though there to hashcode calculation in java, but memeory
+	 * address is the uniquely identified base parameter.
 	 * 
 	 * @see {@link Object#hashCode()} to know more about it.
 	 *
@@ -305,16 +295,13 @@ public class LinkedList<Item> {
 	}
 
 	/**
-	 * problem-7
-	 * Find intersection/merge point of 2 linkedlists using size
-	 * Assuming I know the size of the linkedList
-	 * 1) Get the difference of counts d = abs(c1 – c2)
-	 * 2) Now traverse the bigger list from the first node till d nodes so that
-	 * from here onwards both the lists have equal no of nodes.
-	 * 3) Then we can traverse both the lists in parallel till we come across a
-	 * common node.
-	 * (Note that getting a common node is done by comparing the address of the
-	 * nodes)
+	 * problem-7 Find intersection/merge point of 2 linkedlists using size
+	 * Assuming I know the size of the linkedList 1) Get the difference of
+	 * counts d = abs(c1 – c2) 2) Now traverse the bigger list from the first
+	 * node till d nodes so that from here onwards both the lists have equal no
+	 * of nodes. 3) Then we can traverse both the lists in parallel till we come
+	 * across a common node. (Note that getting a common node is done by
+	 * comparing the address of the nodes)
 	 * 
 	 * @param linkedlist1
 	 *            first linked-list
@@ -353,6 +340,7 @@ public class LinkedList<Item> {
 		Node currentNodeBigList = linkedlist1.first;
 		while (count < diffInSize) {
 			currentNodeBigList = currentNodeBigList.next;
+			count++;
 		}
 
 		Node currentNodeSmallList = linkedlist2.first;
@@ -394,16 +382,13 @@ public class LinkedList<Item> {
 	}
 
 	/**
-	 * problem-7
-	 * Find intersection/merge point of 2 linkedlists using size.
-	 * In case I don't know the size of the linkedLists in advance
-	 * This method basically calls the
-	 * {@link LinkedList#getSizeOfLinkedList(LinkedList)} method to get the size
-	 * of both the linkedlist
-	 * and then just passes the same to the
+	 * problem-7 Find intersection/merge point of 2 linkedlists using size. In
+	 * case I don't know the size of the linkedLists in advance This method
+	 * basically calls the {@link LinkedList#getSizeOfLinkedList(LinkedList)}
+	 * method to get the size of both the linkedlist and then just passes the
+	 * same to the
 	 * {@link LinkedList#findIntersectionPointUsingSizeDiff(LinkedList, LinkedList, int, int)}
-	 * method,
-	 * to get the intersection/merge point of the linkedlists
+	 * method, to get the intersection/merge point of the linkedlists
 	 * 
 	 * @createdOn 09-Apr-2015 5:44:48 pm
 	 * @author ketandikshit
@@ -425,21 +410,16 @@ public class LinkedList<Item> {
 	}
 
 	/**
-	 * problem-7
-	 * Find intersection/merge point of 2 linkedlists using size
-	 * 1. Traverse the first linked list(count the elements) and make a circular
-	 * linked list.
-	 * (Remember last node so that we can break the circle later on).
-	 * 2. Now view the problem as find the loop in the second linked list. So
-	 * the problem is solved.
-	 * 3. Since we already know the length of the loop(size of first linked
-	 * list) we can traverse those many number of nodes in second list,
-	 * and then start another pointer from the beginning of second list. we have
-	 * to traverse until they are equal, and that is the required intersection
-	 * point.
-	 * 4. remove the circle from the linked list.
-	 * Time Complexity: O(m+n)
-	 * Auxiliary Space: O(1)
+	 * problem-7 Find intersection/merge point of 2 linkedlists using size 1.
+	 * Traverse the first linked list(count the elements) and make a circular
+	 * linked list. (Remember last node so that we can break the circle later
+	 * on). 2. Now view the problem as find the loop in the second linked list.
+	 * So the problem is solved. 3. Since we already know the length of the
+	 * loop(size of first linked list) we can traverse those many number of
+	 * nodes in second list, and then start another pointer from the beginning
+	 * of second list. we have to traverse until they are equal, and that is the
+	 * required intersection point. 4. remove the circle from the linked list.
+	 * Time Complexity: O(m+n) Auxiliary Space: O(1)
 	 * 
 	 * @createdOn 09-Apr-2015 11:50:05 pm
 	 * @author ketandikshit
@@ -486,9 +466,9 @@ public class LinkedList<Item> {
 
 		/*
 		 * Now traverse the second list using currentNode2 and
-		 * currentNode2FromHead
-		 * one step at a time until they meet at a common node,
-		 * this node will give you the intersection/merge point of linked-lists
+		 * currentNode2FromHead one step at a time until they meet at a common
+		 * node, this node will give you the intersection/merge point of
+		 * linked-lists
 		 */
 		while (currentNode2FromHead.next != null) {
 			if (currentNode2FromHead == currentNode2) {
@@ -531,28 +511,18 @@ public class LinkedList<Item> {
 	}
 
 	/**
-	 * problem7
-	 * Find intersection/merge point of 2 linkedlists by solving equations
-	 * 1) Let X be the length of the first linked list until intersection point.
-	 * Let Y be the length of the second linked list until the intersection
-	 * point.
-	 * Let Z be the length of the linked list from intersection point to End of
-	 * the linked list including the intersection node.
-	 * We Have
-	 * X + Z = C1;
-	 * Y + Z = C2;
-	 * 2) Reverse first linked list.
-	 * 3) Traverse Second linked list. Let C3 be the length of second list - 1.
-	 * Now we have
-	 * X + Y = C3
-	 * We have 3 linear equations. By solving them, we get
-	 * X = (C1 + C3 – C2)/2;
-	 * Y = (C2 + C3 – C1)/2;
-	 * Z = (C1 + C2 – C3)/2;
-	 * WE GOT THE INTERSECTION POINT.
-	 * 4) Reverse first linked list.
-	 * Advantage: No Comparison of pointers.
-	 * Disadvantage : Modifying linked list(Reversing list).
+	 * problem7 Find intersection/merge point of 2 linkedlists by solving
+	 * equations 1) Let X be the length of the first linked list until
+	 * intersection point. Let Y be the length of the second linked list until
+	 * the intersection point. Let Z be the length of the linked list from
+	 * intersection point to End of the linked list including the intersection
+	 * node. We Have X + Z = C1; Y + Z = C2; 2) Reverse first linked list. 3)
+	 * Traverse Second linked list. Let C3 be the length of second list - 1. Now
+	 * we have X + Y = C3 We have 3 linear equations. By solving them, we get X
+	 * = (C1 + C3 – C2)/2; Y = (C2 + C3 – C1)/2; Z = (C1 + C2 – C3)/2; WE GOT
+	 * THE INTERSECTION POINT. 4) Reverse first linked list. Advantage: No
+	 * Comparison of pointers. Disadvantage : Modifying linked list(Reversing
+	 * list).
 	 * 
 	 * @createdOn 17-Apr-2015 11:54:12 pm
 	 * @author ketandikshit
@@ -584,6 +554,7 @@ public class LinkedList<Item> {
 		reverseLinkedList(reveresedlinkedList1);
 		return intersectionPoint;
 	}
+
 	/**
 	 * Main method
 	 * 
@@ -618,8 +589,8 @@ public class LinkedList<Item> {
 				.println("****************************************************");
 
 		/*
-		 * Here for simplicity of demonstration I am assuming that
-		 * linkedlist1 is of greater size than linkedlist2
+		 * Here for simplicity of demonstration I am assuming that linkedlist1
+		 * is of greater size than linkedlist2
 		 */
 		linkedList2.createIntersection(linkedList1, linkedList2, 5);
 
@@ -645,7 +616,7 @@ public class LinkedList<Item> {
 			// If I know the size of linkedLists in advance
 			int sizeOfLL1 = linkedList1.size;
 			int sizeOfLL2 = linkedList2.size;
-			System.out.println("Intersection/Merge Point-->"
+			System.out.println("sIntersection/Merge Point-->"
 					+ linkedList1.findIntersectionPointUsingSizeDiff(
 							linkedList1, linkedList2, sizeOfLL1, sizeOfLL2));
 

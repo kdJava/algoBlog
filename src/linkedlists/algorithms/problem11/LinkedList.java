@@ -54,10 +54,11 @@ public class LinkedList<Item extends Comparable<Item>> {
 		}
 		int counter = 0;
 		for (Node i = first; i != null; i = i.next) {
-			if (counter == (size - 1))
+			if (counter == (size - 1)) {
 				result += i.item + "]";
-			else
+			} else {
 				result += i.item + "-->";
+			}
 			counter++;
 		}
 		return result;
@@ -107,7 +108,7 @@ public class LinkedList<Item extends Comparable<Item>> {
 		Node newNode = new Node(); // Create new node to insert
 		newNode.item = item; // Set newNode's element to item to to be inserted
 		newNode.next = null; // Set the newNode's next to NULL, as it is to be
-								// inserted at end
+		// inserted at end
 
 		Node currentNode = first;
 		// Lets get the lastNode;
@@ -120,12 +121,10 @@ public class LinkedList<Item extends Comparable<Item>> {
 	}
 
 	/**
-	 * problem11
-	 * Remove duplicates from an unsorted linked list
-	 * Using two loops; (trivial)
-	 * This is the simple way where two loops are used.
-	 * Outer loop is used to pick the elements one by one and inner loop
-	 * compares the picked element with rest of the elements.
+	 * problem11 Remove duplicates from an unsorted linked list Using two loops;
+	 * (trivial) This is the simple way where two loops are used. Outer loop is
+	 * used to pick the elements one by one and inner loop compares the picked
+	 * element with rest of the elements.
 	 * 
 	 * @createdOn 23-Apr-2015 10:44:39 pm
 	 * @author ketandikshit
@@ -138,9 +137,7 @@ public class LinkedList<Item extends Comparable<Item>> {
 			Node curreNode2 = currentNode1;
 			while (curreNode2.next != null) {
 				if (currentNode1.item.equals(curreNode2.next.item)) {
-					Node duplicate = curreNode2.next;
 					curreNode2.next = curreNode2.next.next;
-					duplicate = null;
 					size--;
 				} else {
 					curreNode2 = curreNode2.next;
@@ -160,8 +157,9 @@ public class LinkedList<Item extends Comparable<Item>> {
 	 * @return the head of the sorted linked list after doing merge sort
 	 */
 	private Node mergeSortList(Node head) {
-		if (head == null || head.next == null)
+		if ((head == null) || (head.next == null)) {
 			return head;
+		}
 		Node left = head;
 		Node right = head.next;
 		while ((right != null) && (right.next != null)) {
@@ -228,14 +226,11 @@ public class LinkedList<Item extends Comparable<Item>> {
 	}
 
 	/**
-	 * problem10( copied from problem10)
-	 * Remove duplicates from a sorted linked list
-	 * Algorithm:
-	 * 1. Traverse the list from the head (or start) node. While traversing.
-	 * 2. Compare each node with its next node.
-	 * 3. If data of next node is same as current node then delete the next
-	 * node.
-	 * 4. Before we delete a node, we need to store next pointer of the node
+	 * problem10( copied from problem10) Remove duplicates from a sorted linked
+	 * list Algorithm: 1. Traverse the list from the head (or start) node. While
+	 * traversing. 2. Compare each node with its next node. 3. If data of next
+	 * node is same as current node then delete the next node. 4. Before we
+	 * delete a node, we need to store next pointer of the node
 	 * 
 	 * @createdOn 23-Apr-2015 12:07:47 am
 	 * @author ketandikshit
@@ -251,8 +246,9 @@ public class LinkedList<Item extends Comparable<Item>> {
 		Node nextOfNextNode;
 
 		/* do nothing if the list is empty */
-		if (currentNode == null)
+		if (currentNode == null) {
 			return;
+		}
 
 		/* Traverse the list till last node */
 		while (currentNode.next != null) {
@@ -285,6 +281,7 @@ public class LinkedList<Item extends Comparable<Item>> {
 			currentNode = currentNode.next;
 		}
 	}
+
 	/**
 	 * @createdOn 23-Apr-2015 10:31:25 pm
 	 * @author ketandikshit
@@ -294,8 +291,7 @@ public class LinkedList<Item extends Comparable<Item>> {
 
 		/*
 		 * ***********************************
-		 * Double Loops Method
-		 * ***********************************
+		 * Double Loops Method ***********************************
 		 */
 		LinkedList<Integer> linkedList = new LinkedList<Integer>();
 		linkedList.addAtHead(10);
@@ -324,8 +320,7 @@ public class LinkedList<Item extends Comparable<Item>> {
 
 		/*
 		 * ***********************************
-		 * Merge Sort Method
-		 * ***********************************
+		 * Merge Sort Method ***********************************
 		 */
 		LinkedList<Integer> linkedList2 = new LinkedList<Integer>();
 		linkedList2.addAtHead(100);
@@ -360,13 +355,12 @@ public class LinkedList<Item extends Comparable<Item>> {
 		System.out.println(sortedList);
 		sortedList.removeDuplicatesFromSortedLinkedList(sortedList);
 		System.out
-				.println("(Merge Sort Method) After Removal of Duplicates-->");
+		.println("(Merge Sort Method) After Removal of Duplicates-->");
 		System.out.println(sortedList);
 
 		/*
 		 * ***********************************
-		 * Hashing Method
-		 * ***********************************
+		 * Hashing Method ***********************************
 		 */
 
 		LinkedList<Integer> linkedList3 = new LinkedList<Integer>();
